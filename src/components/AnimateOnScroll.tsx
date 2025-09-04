@@ -5,6 +5,12 @@ import { cn } from "@/lib/utils";
 
 type AnimationName = "fade-in-up" | "fade-in-down" | "zoom-in";
 
+const animationClasses: Record<AnimationName, string> = {
+  "fade-in-up": "animate-fade-in-up",
+  "fade-in-down": "animate-fade-in-down",
+  "zoom-in": "animate-zoom-in",
+};
+
 interface AnimateOnScrollProps {
   children: ReactNode;
   className?: string;
@@ -62,12 +68,14 @@ export function AnimateOnScroll({
     animationDelay: `${delay}ms`,
   };
 
+  const animationClass = animationClasses[animation];
+
   return (
     <div
       ref={ref}
       className={cn(
-        "transition-opacity opacity-0",
-        isVisible && `animate-${animation} opacity-100`,
+        "opacity-0", // Start as invisible
+        isVisible && `${animationClass} opacity-100`, // Apply animation and make visible
         className
       )}
       style={style}

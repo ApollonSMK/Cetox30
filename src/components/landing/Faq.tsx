@@ -1,6 +1,8 @@
 "use client";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Plus, Minus } from 'lucide-react';
+import React from 'react';
 
 const staticFaqs = [
   {
@@ -25,20 +27,38 @@ const staticFaqs = [
   }
 ];
 
+const CustomAccordionTrigger = React.forwardRef<
+  React.ElementRef<typeof AccordionTrigger>,
+  React.ComponentPropsWithoutRef<typeof AccordionTrigger> & { open?: boolean }
+>(({ children, open, ...props }, ref) => (
+  <AccordionTrigger
+    ref={ref}
+    {...props}
+    className="text-primary font-semibold hover:no-underline"
+  >
+    {children}
+    {open ? <Minus className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
+  </AccordionTrigger>
+));
+CustomAccordionTrigger.displayName = "CustomAccordionTrigger";
+
 export function Faq() {
+  const [openItem, setOpenItem] = React.useState<string | null>(null);
+
   return (
     <section id="faq" className="w-full py-12 md:py-16 lg:py-20 bg-background">
       <div className="px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Perguntas Frequentes</h2>
-          <p className="max-w-[600px] mx-auto text-muted-foreground md:text-xl/relaxed">Ainda tem dúvidas? A gente te ajuda.</p>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
+            Perguntas <span className="text-primary">FREQUENTES</span>
+          </h2>
         </div>
-        <div className="mx-auto max-w-3xl">
-          <Accordion type="single" collapsible className="w-full">
+        <div className="mx-auto max-w-3xl space-y-4">
+          <Accordion type="single" collapsible className="w-full" onValueChange={(value) => setOpenItem(value)}>
             {staticFaqs.map((faq, i) => (
-              <AccordionItem value={`item-${i}`} key={i}>
-                <AccordionTrigger className="font-bold text-lg text-left">{faq.question}</AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground">{faq.answer}</AccordionContent>
+              <AccordionItem value={`item-${i}`} key={i} className="bg-white rounded-lg shadow-md border-none p-2">
+                <CustomAccordionTrigger open={openItem === `item-${i}`}>{faq.question}</CustomAccordionTrigger>
+                <AccordionContent className="text-base text-muted-foreground pt-2 px-4">{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

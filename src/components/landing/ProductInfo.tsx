@@ -50,7 +50,7 @@ const solutions = [
 export function ProductInfo() {
   return (
     <>
-      <section id="frustracoes" className="w-full py-12 md:py-24 lg:py-32 bg-[#e5e7eb]">
+      <section id="frustracoes" className="w-full py-12 md:py-24 lg:py-32 bg-[#f9fafb]">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -59,7 +59,7 @@ export function ProductInfo() {
           </div>
           <div className="mx-auto grid max-w-4xl items-start gap-6 sm:grid-cols-2 md:gap-8 mt-12">
             {frustrations.map((item, index) => (
-              <Card key={index} className="text-center bg-muted/50 border-destructive/20">
+              <Card key={index} className="text-center bg-background border-destructive/20">
                 <CardHeader className="items-center gap-4 p-6">
                   {item.icon}
                   <div className="space-y-1">

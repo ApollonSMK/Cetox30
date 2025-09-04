@@ -1,12 +1,6 @@
 "use client";
 
-import { useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Loader2 } from "lucide-react";
-import { answerQuestion, type FAQWithAIOutput } from "@/ai/flows/faq-with-ai";
 
 const staticFaqs = [
   {
@@ -32,30 +26,6 @@ const staticFaqs = [
 ];
 
 export function Faq() {
-  const [question, setQuestion] = useState("");
-  const [aiResponse, setAiResponse] = useState<FAQWithAIOutput | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleQuestionSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!question.trim()) return;
-
-    setIsLoading(true);
-    setError(null);
-    setAiResponse(null);
-
-    try {
-      const response = await answerQuestion({ question });
-      setAiResponse(response);
-    } catch (err) {
-      setError("Desculpe, não consegui encontrar uma resposta. Tente reformular sua pergunta.");
-      console.error(err);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   return (
     <section id="faq" className="w-full py-12 md:py-24 lg:py-32 bg-background">
       <div className="container px-4 md:px-6">
@@ -63,55 +33,15 @@ export function Faq() {
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Perguntas Frequentes</h2>
           <p className="max-w-[600px] mx-auto text-muted-foreground md:text-xl/relaxed">Ainda tem dúvidas? A gente te ajuda.</p>
         </div>
-        <div className="grid gap-12 lg:grid-cols-2">
-          <div>
-            <Accordion type="single" collapsible className="w-full">
-              {staticFaqs.map((faq, i) => (
-                <AccordionItem value={`item-${i}`} key={i}>
-                  <AccordionTrigger className="font-bold text-lg text-left">{faq.question}</AccordionTrigger>
-                  <AccordionContent className="text-base text-muted-foreground">{faq.answer}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-          <div className="flex items-start">
-            <Card className="w-full shadow-lg">
-              <CardHeader>
-                <CardTitle>Tem outra pergunta?</CardTitle>
-                <CardDescription>Use nossa Inteligência Artificial para obter uma resposta instantânea sobre o Plano Cetox30.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleQuestionSubmit} className="space-y-4">
-                  <Input
-                    placeholder="Ex: Posso comer fruta no plano Cetox30?"
-                    value={question}
-                    onChange={(e) => setQuestion(e.target.value)}
-                    disabled={isLoading}
-                    className="text-base"
-                  />
-                  <Button type="submit" className="w-full font-bold" disabled={isLoading || !question.trim()}>
-                    {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Perguntar à IA"}
-                  </Button>
-                </form>
-                {isLoading && (
-                  <div className="mt-4 text-center text-muted-foreground flex items-center justify-center">
-                    <p>Buscando a melhor resposta...</p>
-                  </div>
-                )}
-                {error && (
-                  <div className="mt-4 text-center text-destructive p-3 bg-destructive/10 rounded-md">
-                    <p>{error}</p>
-                  </div>
-                )}
-                {aiResponse && (
-                  <div className="mt-4 p-4 bg-secondary/30 rounded-lg border">
-                    <p className="font-semibold text-primary">Resposta da IA:</p>
-                    <p className="text-muted-foreground">{aiResponse.answer}</p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          </div>
+        <div className="mx-auto max-w-3xl">
+          <Accordion type="single" collapsible className="w-full">
+            {staticFaqs.map((faq, i) => (
+              <AccordionItem value={`item-${i}`} key={i}>
+                <AccordionTrigger className="font-bold text-lg text-left">{faq.question}</AccordionTrigger>
+                <AccordionContent className="text-base text-muted-foreground">{faq.answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </section>

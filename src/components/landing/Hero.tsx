@@ -26,16 +26,16 @@ export function Hero() {
           />
 
           <div className="flex flex-col items-center space-y-4 max-w-3xl">
-             <p className="text-muted-foreground md:text-xl">
+            <p className="text-muted-foreground md:text-xl">
               Descubra o sistema revolucionário que já ajudou mais de 1000 pessoas a alcançarem resultados extraordinários.
             </p>
             <Badge variant="destructive" className="text-base font-semibold animate-pulse">
-              🔥 OFERTA LIMITADA: Apenas 15 vagas restantes!
+              🔥 OFERTA LIMITADA: Apenas 15 vagas restantes! Garanta já a sua!
             </Badge>
 
             <div className="flex items-center gap-4">
-              <span className="text-5xl font-bold text-primary">33,99€</span>
               <span className="text-2xl text-muted-foreground line-through">67,98€</span>
+              <span className="text-5xl font-bold text-primary">33,99€</span>
             </div>
 
              <Button asChild size="lg" className="font-bold text-xl h-14 animate-breathing-pulse shadow-xl">

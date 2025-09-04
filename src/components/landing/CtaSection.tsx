@@ -11,7 +11,7 @@ export function CtaSection() {
               A SUA TRANSFORMAÇÃO COMEÇA AQUI
             </h2>
             <p className="max-w-[800px] mx-auto text-muted-foreground md:text-xl/relaxed mt-4">
-              Aqui está tudo o que vai receber ao garantir o seu acesso hoje com <span className="text-primary font-bold">70% de desconto</span>.
+              Aqui está Tudo o que vai receber...
             </p>
         </div>
 
@@ -23,23 +23,25 @@ export function CtaSection() {
                     <Badge variant="secondary" className="text-base">Valor: 67,98€</Badge>
                 </div>
                  <div className="space-y-2">
-                    <h3 className="text-2xl font-bold">2 BÓNUS EXCLUSIVOS</h3>
+                    <h3 className="text-2xl font-bold">2 BÓNUS EXCLUSIVOS DE ACESSO IMEDIATO</h3>
                     <p className="text-muted-foreground">Garanta hoje o seu plano e receba gratuitamente os e-books <span className="font-semibold">SOBREMESAS CETOX30</span> e <span className="font-semibold">SEGREDOS PARA UMA DIETA DE SUCESSO</span>. Uma ajuda extra para resultados ainda melhores!</p>
                     <Badge variant="secondary" className="text-base">Valor: 39,99€</Badge>
                 </div>
 
                 <div className="border-t pt-6 space-y-4">
+                     <p className="text-lg text-muted-foreground">TENHA ACESSO AO PLANO CETOX30 COM 70% DE DESCONTO HOJE!</p>
                      <p className="text-lg text-muted-foreground">De <span className="line-through">107,97€</span> por apenas:</p>
                      <p className="text-5xl lg:text-6xl font-extrabold text-primary">33,99€ <span className="text-lg font-medium text-muted-foreground">(+IVA)</span></p>
                       <Button asChild size="lg" className="w-full font-bold text-xl animate-breathing-pulse shadow-xl h-14">
                         <a href="#">Inscrever-me Agora</a>
                     </Button>
-                    <p className="text-sm text-muted-foreground">⚠️ Oferta por tempo limitado!</p>
+                    <p className="text-sm text-muted-foreground">ATENÇÃO: OFERTA POR TEMPO LIMITADO!</p>
+                    <p className="text-sm text-muted-foreground">Apenas 15 vagas restantes com desconto especial!</p>
                 </div>
             </div>
              <div className="flex flex-col items-center justify-center gap-4">
-                <Image src="https://picsum.photos/500/500?random=10" alt="Capa do E-book CETOX30" width={500} height={500} data-ai-hint="ebook cover" className="rounded-lg shadow-2xl" />
-                <Image src="https://picsum.photos/500/300?random=11" alt="Bónus do plano" width={500} height={300} data-ai-hint="ebooks bonus" className="rounded-lg shadow-2xl" />
+                <Image src="https://picsum.photos/500/500?random=10" alt="Capa do E-book CETOX30 e visualização em telemóvel e computador" width={500} height={500} data-ai-hint="ebook cover" className="rounded-lg shadow-2xl" />
+                <Image src="https://picsum.photos/500/300?random=11" alt="Visualização dos e-books bónus em tablets" width={500} height={300} data-ai-hint="ebooks bonus" className="rounded-lg shadow-2xl" />
             </div>
         </div>
 
@@ -49,7 +51,7 @@ export function CtaSection() {
                 Temos tanta confiança nos resultados que o plano CETOX30 pode proporcionar que lhe oferecemos uma garantia incondicional de 15 dias. Se, por qualquer motivo, não ficar completamente satisfeito, basta enviar-nos um e-mail e devolveremos 100% do seu investimento. Sem perguntas, sem complicações.
             </p>
              <Button asChild size="lg">
-                <a href="#">QUERO TRANSFORMAR O MEU CORPO</a>
+                <a href="#comprar">QUERO TRANSFORMAR O MEU CORPO</a>
             </Button>
         </div>
       </div>

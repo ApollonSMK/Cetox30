@@ -1,72 +1,56 @@
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-
-const testimonials = [
-  {
-    name: "Resultados em 7 Dias",
-    before: "https://picsum.photos/400/500?random=1",
-    after: "https://picsum.photos/400/500?random=2",
-    beforeHint: "woman overweight",
-    afterHint: "woman fit",
-    description: "Começará a ver os primeiros resultados logo na primeira semana. O nosso método é tão eficaz que 94% dos utilizadores relatam mudanças significativas nos primeiros 7 dias.",
-  },
-  {
-    name: "Sistema Passo a Passo",
-    before: "https://picsum.photos/400/500?random=3",
-    after: "https://picsum.photos/400/500?random=4",
-    beforeHint: "man overweight",
-    afterHint: "man fit",
-    description: "Não há espaço para dúvidas. A cada dia saberá exatamente o que fazer, quando fazer e como fazer para alcançar os seus objetivos.",
-  },
-  {
-    name: "Transformação Completa",
-    before: "https://picsum.photos/400/500?random=5",
-    after: "https://picsum.photos/400/500?random=6",
-    beforeHint: "sad person",
-    afterHint: "happy person",
-    description: "Não se trata apenas de um aspeto da sua vida. O CETOX30 trabalha de forma holística para transformar TODAS as áreas importantes da sua vida.",
-  },
-];
 
 export function BeforeAfter() {
+  const testimonials = [
+    {
+      before: "https://picsum.photos/400/500?random=1",
+      after: "https://picsum.photos/400/500?random=2",
+      beforeHint: "woman overweight",
+      afterHint: "woman fit",
+      description: "Transformação antes e depois com o plano Cetox30 - Imagem 1",
+    },
+    {
+      before: "https://picsum.photos/400/500?random=3",
+      after: "https://picsum.photos/400/500?random=4",
+      beforeHint: "man overweight",
+      afterHint: "man fit",
+      description: "Transformação antes e depois com o plano Cetox30 - Imagem 2",
+    },
+    {
+      before: "https://picsum.photos/400/500?random=5",
+      after: "https://picsum.photos/400/500?random=6",
+      beforeHint: "sad person",
+      afterHint: "happy person",
+      description: "Transformação antes e depois com o plano Cetox30 - Imagem 3",
+    },
+  ];
+
   return (
     <section id="resultados" className="w-full py-12 md:py-24 lg:py-32 bg-background">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Transformação Antes e Depois com o Plano Cetox30</h2>
-          <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">Veja o que o nosso método pode fazer por si em apenas 30 dias.</p>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Transformação antes e depois com o plano Cetox30</h2>
         </div>
-        <Carousel className="w-full max-w-6xl mx-auto" opts={{ loop: true }}>
-          <CarouselContent>
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((t, i) => (
-              <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1 h-full">
-                  <Card className="overflow-hidden flex flex-col h-full">
-                    <CardContent className="flex flex-col items-center justify-center p-6 gap-4 flex-1">
-                      <div className="flex justify-around w-full">
-                        <div className="text-center space-y-2">
-                          <Image src={t.before} alt={`Antes - ${t.name}`} width={200} height={250} data-ai-hint={t.beforeHint} className="rounded-lg shadow-md aspect-[4/5] object-cover" />
-                          <h3 className="font-bold text-md bg-gray-200 text-gray-800 rounded-full px-3 py-1 inline-block">ANTES</h3>
-                        </div>
-                        <div className="text-center space-y-2">
-                          <Image src={t.after} alt={`Depois - ${t.name}`} width={200} height={250} data-ai-hint={t.afterHint} className="rounded-lg shadow-md aspect-[4/5] object-cover" />
-                          <h3 className="font-bold text-md bg-primary text-primary-foreground rounded-full px-3 py-1 inline-block">DEPOIS</h3>
-                        </div>
-                      </div>
-                      <div className="mt-4 text-center space-y-2">
-                        <p className="text-2xl font-bold text-primary">{t.name}</p>
-                        <p className="text-muted-foreground text-sm">{t.description}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
+              <Card key={i} className="overflow-hidden">
+                <CardContent className="flex flex-col items-center p-6 gap-4">
+                  <div className="flex justify-around w-full">
+                    <div className="text-center space-y-2">
+                      <Image src={t.before} alt="Antes" width={200} height={250} data-ai-hint={t.beforeHint} className="rounded-lg shadow-md aspect-[4/5] object-cover" />
+                      <h3 className="font-bold text-md bg-gray-200 text-gray-800 rounded-full px-3 py-1 inline-block">ANTES</h3>
+                    </div>
+                    <div className="text-center space-y-2">
+                      <Image src={t.after} alt="Depois" width={200} height={250} data-ai-hint={t.afterHint} className="rounded-lg shadow-md aspect-[4/5] object-cover" />
+                      <h3 className="font-bold text-md bg-primary text-primary-foreground rounded-full px-3 py-1 inline-block">DEPOIS</h3>
+                    </div>
+                  </div>
+                  <p className="mt-4 text-center text-muted-foreground">{t.description}</p>
+                </CardContent>
+              </Card>
             ))}
-          </CarouselContent>
-          <CarouselPrevious className="hidden sm:flex" />
-          <CarouselNext className="hidden sm:flex" />
-        </Carousel>
+        </div>
       </div>
     </section>
   );

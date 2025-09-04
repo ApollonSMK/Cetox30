@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="bg-foreground text-background">
       <div className="container mx-auto py-8 px-4 md:px-6 text-center text-sm space-y-4">
         <p className="text-xs text-background/60 max-w-3xl mx-auto">
-            Pirataria é Crime. A venda do Projeto Cetox30 só pode ser realizada através deste site, registado em nome de Plano Cetox. Qualquer outro site onde encontre este programa é uma FALSIFICAÇÃO e vai contra as leis. Evite falsificações e recuse conteúdos ilegais ou pirateados. NÃO adquira programas parecidos que não são baseados em anos de estudo da psicologia comportamental. Não nos responsabilizamos por compras realizadas noutros sites.
+            A venda do Projeto Cetox30 só pode ser realizada através deste site, registado em nome de Plano Cetox. Qualquer outro site onde encontre este programa é uma FALSIFICAÇÃO e vai contra as leis. Evite falsificações e recuse conteúdos ilegais ou pirateados. NÃO adquira programas parecidos que não são baseados em anos de estudo da psicologia comportamental. Não nos responsabilizamos por compras realizadas noutros sites.
         </p>
         <div className="flex flex-col sm:flex-row justify-between items-center text-sm gap-4 border-t border-background/20 pt-6">
             <div className="flex items-center gap-2">

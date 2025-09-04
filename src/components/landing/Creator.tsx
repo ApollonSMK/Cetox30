@@ -16,9 +16,9 @@ export function Creator() {
           />
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">Olá, quero mostrar-lhe como consegui <span className="text-primary">perder mais de 20 quilos em apenas 2 meses</span></h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">Olá, quero mostrar-lhe como consegui <span className="text-primary">perder mais de 20 quilos em apenas 2 meses</span> e, mais importante, como qualquer pessoa também pode perder 10 quilos ou mais.</h2>
               <p className="text-muted-foreground md:text-lg">
-                E, mais importante, como qualquer pessoa também pode perder 10 quilos ou mais. Se faz parte dos 99% que já tentaram de tudo sem sucesso, estou aqui para mudar isso.
+                Se faz parte dos 99% que já tentaram de tudo sem sucesso, estou aqui para mudar isso.
               </p>
               <p className="text-muted-foreground md:text-lg">
                 Após anos de pesquisa para me livrar de situações humilhantes causadas pelo excesso de peso, descobri um segredo. Um plano alimentar simples de 30 dias que o vai ajudar a conquistar o corpo que deseja, sem passar fome.

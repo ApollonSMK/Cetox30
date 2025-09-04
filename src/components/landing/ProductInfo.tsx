@@ -30,22 +30,22 @@ const solutions = [
     {
       icon: <CheckCircle className="h-8 w-8 text-primary" />,
       title: "Queima de Gordura Automática",
-      description: "Como ativar a queima de gordura automática 24 horas por dia, enquanto come o que mais gosta, sem sofrimento e sem praticar exercício físico.",
+      description: "Ative a queima de gordura 24 horas por dia, comendo o que gosta e sem exercício físico.",
     },
     {
       icon: <CheckCircle className="h-8 w-8 text-primary" />,
-      title: "O Verdadeiro Culpado do Excesso de Peso",
-      description: "O verdadeiro culpado que impede a sua perda de peso, e como os alimentos ricos em gordura podem ajudar a emagrecer mais rápido.",
+      title: "O Verdadeiro Culpado do Peso",
+      description: "Descubra o que realmente impede a sua perda de peso e como usar a gordura a seu favor.",
     },
     {
       icon: <CheckCircle className="h-8 w-8 text-primary" />,
-      title: "Cetose: O Segredo para Emagrecer Rápido",
-      description: "O Cetox30 estimula a cetose, um processo natural do corpo, promovendo uma queima de gordura mais eficiente e acelerando a perda de peso.",
+      title: "Cetose: O Segredo Rápido",
+      description: "Estimule um processo natural do corpo para uma queima de gordura mais eficiente.",
     },
     {
       icon: <CheckCircle className="h-8 w-8 text-primary" />,
-      title: "Receitas para Acelerar o Metabolismo",
-      description: "Receitas simples e rápidas que aceleram o metabolismo e potenciam o aumento da cetose.",
+      title: "Receitas Aceleradoras",
+      description: "Aprenda receitas simples que aceleram o seu metabolismo e potenciam a cetose.",
     },
 ];
 
@@ -116,16 +116,18 @@ export function ProductInfo() {
                     </div>
                 ))}
             </div>
+            <div className="mt-12">
+                <h3 className="text-2xl font-bold tracking-tighter sm:text-4xl font-headline">Método</h3>
+                <h4 className="text-xl font-semibold tracking-tighter sm:text-3xl font-headline text-primary mt-2">Plano de emagrecimento Cetox30</h4>
+                <p className="max-w-[800px] mx-auto text-muted-foreground md:text-xl/relaxed mt-4">Dentro do programa, terá acesso a um guia passo a passo ao longo de 30 dias, com orientações e um plano de dieta para perder até 10 quilos num único mês e conquistar o corpo que sempre desejou.</p>
+            </div>
          </div>
        </section>
       <section id="conquistas" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/30">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">O Que Vai Descobrir no Plano <span className="text-primary">Cetox30</span></h2>
-               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Dentro do programa, terá acesso a um guia passo a passo ao longo de 30 dias, com orientações e um plano de dieta para perder até 10 quilos num único mês e conquistar o corpo que sempre desejou.
-              </p>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">O Que Vai Descobrir no Plano</h2>
             </div>
           </div>
           <div className="mx-auto grid max-w-5xl items-start gap-6 sm:grid-cols-2 md:gap-8 lg:max-w-none lg:grid-cols-4 mt-12">

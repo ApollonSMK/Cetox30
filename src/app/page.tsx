@@ -1,3 +1,4 @@
+import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
 import { Frustrations } from "@/components/landing/Frustrations";
@@ -17,18 +18,40 @@ export default function Home() {
     <div className="mx-auto max-w-screen-2xl">
       <div className="flex flex-col min-h-[100dvh] bg-background">
         <Header />
-        <main className="flex-1">
-          <Hero />
-          <Frustrations />
-          <Creator />
-          <Benefits />
-          <BeforeAfter />
-          <ProductInfo />
-          <Reviews />
-          <CtaSection />
-          <Guarantee />
-          <FinalCta />
-          <Faq />
+        <main className="flex-1 overflow-hidden">
+          <AnimateOnScroll animation="fade-in-down" delay={200}>
+            <Hero />
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fade-in-up">
+            <Frustrations />
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="zoom-in" threshold={0.3}>
+            <Creator />
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fade-in-up">
+            <Benefits />
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fade-in-up">
+            <BeforeAfter />
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fade-in-up">
+            <ProductInfo />
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="zoom-in" threshold={0.1}>
+            <Reviews />
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fade-in-up">
+            <CtaSection />
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fade-in-up">
+            <Guarantee />
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="zoom-in" threshold={0.1}>
+            <FinalCta />
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fade-in-up" threshold={0.1}>
+            <Faq />
+          </AnimateOnScroll>
         </main>
         <Footer />
       </div>

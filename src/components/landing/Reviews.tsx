@@ -77,7 +77,7 @@ export function Reviews() {
         <div className="mt-12 text-center">
             <Button asChild size="lg" className="h-14 px-8 font-bold text-xl rounded-full">
                 <a href="#comprar">
-                  QUERO JUNTAR-ME A ELES
+                  QUERO PARTICIPAR
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
             </Button>

@@ -1,21 +1,22 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 
 export function Creator() {
   return (
     <section id="creator" className="w-full py-12 md:py-16 lg:py-20 bg-secondary/30">
       <div className="container px-4 md:px-6">
-        <div className="space-y-6 text-center">
-          <p className="text-lg md:text-xl text-foreground">
-            Se respondeu <span className="font-bold text-primary">SIM</span> a qualquer uma destas perguntas...
-          </p>
-          <p className="text-2xl md:text-3xl font-bold font-headline">
-            Então o CETOX30 foi feito especialmente para SI!
-          </p>
+        <div className="text-center">
+          <div className="space-y-6 text-center">
+            <p className="text-lg md:text-xl text-foreground">
+              Se respondeu <span className="font-bold text-primary">SIM</span> a qualquer uma destas perguntas...
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold font-headline">
+              Então o CETOX30 foi feito especialmente para SI!
+            </h2>
+          </div>
         </div>
-
         <div className="mt-12">
           <Card className="overflow-hidden shadow-xl bg-background">
             <div className="flex flex-col md:flex-row">
@@ -36,24 +37,23 @@ export function Creator() {
                 </div>
               </div>
               <div className="relative md:w-2/5 flex items-center justify-center p-6 md:p-0">
-                 <Image
-                    src="https://placehold.co/600x800"
-                    alt="Criador do Plano Cetox30"
-                    width={600}
-                    height={800}
-                    data-ai-hint="man smiling portrait"
-                    className="w-full h-auto md:h-full object-cover rounded-lg shadow-md"
+                <Image
+                  src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYXJ8ZW58MHx8fHwxNzU2OTE5NDQxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="Criador do Plano Cetox30"
+                  width={600}
+                  height={800}
+                  data-ai-hint="man smiling portrait"
+                  className="w-full h-auto md:h-full object-cover rounded-lg shadow-md"
                 />
               </div>
             </div>
           </Card>
         </div>
-        
         <div className="text-center mt-12">
           <Button asChild size="lg" className="h-14 px-8 font-bold text-xl animate-breathing-pulse">
             <a href="#comprar">
               QUERO TRANSFORMAR O MEU CORPO
-              <ArrowRight className="ml-2"/>
+              <ArrowRight className="ml-2" />
             </a>
           </Button>
         </div>

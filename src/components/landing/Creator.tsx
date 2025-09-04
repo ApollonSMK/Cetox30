@@ -13,8 +13,8 @@ export function Creator() {
         </div>
 
         <div className="mt-12">
-          <Card className="grid md:grid-cols-5 gap-0 overflow-hidden shadow-xl">
-            <div className="md:col-span-3 p-6 md:p-8 flex flex-col justify-center">
+          <Card className="flex flex-col md:flex-row overflow-hidden shadow-xl">
+            <div className="md:w-3/5 p-6 md:p-8 flex flex-col justify-center">
               <CardHeader className="p-0">
                 <CardTitle className="text-2xl md:text-3xl font-bold tracking-tighter !leading-tight font-headline">
                   Olá, quero mostrar-lhe como consegui <span className="text-primary">perder mais de 20 quilos em apenas 2 meses</span>...
@@ -32,14 +32,14 @@ export function Creator() {
                   </p>
               </CardContent>
             </div>
-            <div className="md:col-span-2">
+            <div className="md:w-2/5">
                <Image
                   src="https://picsum.photos/600/800"
                   alt="Criador do Plano Cetox30"
                   width={600}
                   height={800}
                   data-ai-hint="man smiling portrait"
-                  className="w-full h-full object-cover min-h-[300px]"
+                  className="w-full h-full object-cover min-h-[300px] md:min-h-0"
               />
             </div>
           </Card>

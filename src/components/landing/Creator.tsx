@@ -23,7 +23,7 @@ export function Creator() {
               <div className="md:grid md:grid-cols-2">
                   <div className="p-6 md:p-10 flex flex-col justify-center">
                     <div className="space-y-4 text-left">
-                      <h3 className="text-3xl md:text-4xl font-bold tracking-tighter !leading-tight font-headline">
+                      <h3 className="text-3xl md:text-4xl font-bold tracking-tighter !leading-tight font-headline break-words">
                         Olá, quero mostrar-lhe como consegui <span className="text-primary">perder mais de 20 quilos em apenas 2 meses</span>...
                       </h3>
                       <p className="text-muted-foreground md:text-lg">

@@ -1,6 +1,6 @@
-import { XCircle, CheckCircle } from "lucide-react";
+import { XCircle, CheckCircle, Zap, TrendingUp, HeartHandshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 
 const frustrations = [
   {
@@ -46,7 +46,25 @@ const solutions = [
       title: "Receitas para Acelerar o Metabolismo",
       description: "Receitas simples e rápidas que aceleram o metabolismo e potenciam o aumento da cetose.",
     },
-  ];
+];
+
+const benefits = [
+    {
+        icon: <Zap className="h-10 w-10 text-primary" />,
+        title: "Resultados em 7 Dias",
+        description: "Começará a ver os primeiros resultados logo na primeira semana. O nosso método é tão eficaz que 94% dos utilizadores relatam mudanças significativas nos primeiros 7 dias.",
+    },
+    {
+        icon: <TrendingUp className="h-10 w-10 text-primary" />,
+        title: "Sistema Passo a Passo",
+        description: "Não há espaço para dúvidas. A cada dia saberá exatamente o que fazer, quando fazer e como fazer para alcançar os seus objetivos.",
+    },
+    {
+        icon: <HeartHandshake className="h-10 w-10 text-primary" />,
+        title: "Transformação Completa",
+        description: "Não se trata apenas de um aspeto da sua vida. O CETOX30 trabalha de forma holística para transformar TODAS as áreas importantes da sua vida.",
+    },
+];
 
 export function ProductInfo() {
   return (
@@ -83,6 +101,17 @@ export function ProductInfo() {
             <p className="max-w-[800px] mx-auto text-muted-foreground md:text-xl/relaxed mt-4">
               O único método cientificamente comprovado que garante resultados transformadores em apenas 30 dias, ou recebe 100% do seu dinheiro de volta!
             </p>
+             <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-3 mt-12">
+                {benefits.map((benefit, index) => (
+                    <div key={index} className="flex flex-col items-center gap-4">
+                        {benefit.icon}
+                        <div className="text-center">
+                            <h3 className="text-xl font-bold">{benefit.title}</h3>
+                            <p className="text-muted-foreground mt-2">{benefit.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
          </div>
        </section>
       <section id="conquistas" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/30">

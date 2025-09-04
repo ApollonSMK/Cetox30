@@ -31,7 +31,7 @@ export function Hero() {
           <p className="text-muted-foreground md:text-xl">
             Descubra o sistema revolucionário que já ajudou mais de 1000 pessoas a alcançarem resultados extraordinários.
           </p>
-          <Badge variant="destructive" className="text-base font-semibold animate-pulse">
+          <Badge variant="destructive" className="text-base font-semibold animate-pulse p-3 w-full whitespace-normal text-center">
             🔥 OFERTA LIMITADA: Apenas 15 vagas restantes! Garanta já a sua!
           </Badge>
 
@@ -41,7 +41,7 @@ export function Hero() {
           </div>
 
           <Button asChild size="lg" className="font-bold text-xl h-14 animate-breathing-pulse shadow-xl w-full sm:w-auto">
-            <a href="#comprar">Quero Emagrecer Agora</a>
+            <a href="#comprar">Quero Emagrecer</a>
           </Button>
         </div>
       </div>

@@ -12,8 +12,8 @@ export function Creator() {
             <p className="text-2xl md:text-3xl font-bold font-headline">Então o CETOX30 foi feito especialmente para SI!</p>
         </div>
 
-        <Card className="mt-12 overflow-hidden shadow-xl md:grid md:grid-cols-5 md:items-center">
-          <div className="p-6 md:p-8 md:col-span-3">
+        <Card className="mt-12 overflow-hidden shadow-xl md:flex md:items-center">
+          <div className="p-6 md:p-8 md:w-3/5">
             <CardHeader className="p-0">
               <CardTitle className="text-2xl md:text-3xl font-bold tracking-tighter !leading-tight font-headline">
                 Olá, quero mostrar-lhe como consegui <span className="text-primary">perder mais de 20 quilos em apenas 2 meses</span>...
@@ -31,7 +31,7 @@ export function Creator() {
                 </p>
             </CardContent>
           </div>
-          <div className="md:col-span-2 h-full">
+          <div className="md:w-2/5 h-full">
             <Image
                 src="https://picsum.photos/600/800"
                 alt="Criador do Plano Cetox30"

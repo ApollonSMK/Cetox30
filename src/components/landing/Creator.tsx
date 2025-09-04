@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 
 export function Creator() {
@@ -12,39 +12,37 @@ export function Creator() {
             <p className="text-2xl md:text-3xl font-bold font-headline">Então o CETOX30 foi feito especialmente para SI!</p>
         </div>
 
-        <div className="max-w-5xl mx-auto mt-12">
-            <Card className="overflow-hidden shadow-xl">
-                <div className="flex flex-col md:flex-row">
-                    <div className="flex-1 p-6 md:p-8 flex flex-col justify-center text-left">
-                        <CardHeader className="p-0">
-                        <CardTitle className="text-2xl md:text-3xl font-bold tracking-tighter !leading-tight font-headline">
-                            Olá, quero mostrar-lhe como consegui <span className="text-primary">perder mais de 20 quilos em apenas 2 meses</span>...
-                        </CardTitle>
-                        </CardHeader>
-                        <CardContent className="p-0 mt-4 space-y-4 text-muted-foreground md:text-lg">
-                            <p>
-                                ...e, mais importante, como <span className="font-bold text-foreground">qualquer pessoa também pode perder 10 quilos ou mais.</span>
-                            </p>
-                            <p>
-                                Se faz parte dos 99% que já tentaram de tudo sem sucesso, estou aqui para mudar isso.
-                            </p>
-                            <p>
-                                Após anos de pesquisa para me livrar de situações humilhantes causadas pelo excesso de peso, descobri um segredo. Um plano alimentar simples de 30 dias que o vai ajudar a conquistar o corpo que deseja, sem passar fome.
-                            </p>
-                        </CardContent>
-                    </div>
-                    <div className="relative md:w-2/5">
-                         <Image
-                            src="https://placehold.co/600/800"
-                            alt="Criador do Plano Cetox30"
-                            width={600}
-                            height={800}
-                            data-ai-hint="man smiling portrait"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
+        <div className="max-w-6xl mx-auto mt-12">
+          <Card className="overflow-hidden shadow-xl bg-background">
+            <div className="flex flex-col md:flex-row">
+              <div className="flex-1 p-6 md:p-10 flex flex-col justify-center">
+                <div className="space-y-4 text-left">
+                  <h3 className="text-3xl md:text-4xl font-bold tracking-tighter !leading-tight font-headline">
+                    Olá, quero mostrar-lhe como consegui <span className="text-primary">perder mais de 20 quilos em apenas 2 meses</span>...
+                  </h3>
+                  <p className="text-muted-foreground md:text-lg">
+                    ...e, mais importante, como <span className="font-bold text-foreground">qualquer pessoa também pode perder 10 quilos ou mais.</span>
+                  </p>
+                  <p className="text-muted-foreground">
+                    Se faz parte dos 99% que já tentaram de tudo sem sucesso, estou aqui para mudar isso.
+                  </p>
+                  <p className="text-muted-foreground">
+                    Após anos de pesquisa para me livrar de situações humilhantes causadas pelo excesso de peso, descobri um segredo. Um plano alimentar simples de 30 dias que o vai ajudar a conquistar o corpo que deseja, sem passar fome.
+                  </p>
                 </div>
-            </Card>
+              </div>
+              <div className="relative md:w-2/5 flex items-center justify-center p-6 md:p-0">
+                 <Image
+                    src="https://placehold.co/600x800"
+                    alt="Criador do Plano Cetox30"
+                    width={600}
+                    height={800}
+                    data-ai-hint="man smiling portrait"
+                    className="w-full h-auto md:h-full object-cover rounded-lg shadow-md"
+                />
+              </div>
+            </div>
+          </Card>
         </div>
         
         <div className="text-center mt-12">

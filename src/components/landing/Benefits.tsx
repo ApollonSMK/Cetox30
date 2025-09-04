@@ -2,17 +2,17 @@ import { Zap, TrendingUp, HeartHandshake } from "lucide-react";
 
 const benefits = [
     {
-        icon: <Zap className="h-10 w-10 text-primary" />,
+        icon: <Zap className="h-10 w-10 text-primary-solid" />,
         title: "Resultados em 7 Dias",
         description: "Começará a ver os primeiros resultados logo na primeira semana. O nosso método é tão eficaz que 94% dos utilizadores relatam mudanças significativas nos primeiros 7 dias.",
     },
     {
-        icon: <TrendingUp className="h-10 w-10 text-primary" />,
+        icon: <TrendingUp className="h-10 w-10 text-primary-solid" />,
         title: "Sistema Passo a Passo",
         description: "Não há espaço para dúvidas. A cada dia saberá exatamente o que fazer, quando fazer e como fazer para alcançar os seus objetivos.",
     },
     {
-        icon: <HeartHandshake className="h-10 w-10 text-primary" />,
+        icon: <HeartHandshake className="h-10 w-10 text-primary-solid" />,
         title: "Transformação Completa",
         description: "Não se trata apenas de um aspeto da sua vida. O CETOX30 trabalha de forma holística para transformar TODAS as áreas importantes da sua vida.",
     },

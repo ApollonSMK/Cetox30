@@ -11,6 +11,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
     --primary: 355 79% 56%;
+    --primary-gradient-to: 355 85% 65%;
     --primary-foreground: 0 0% 100%;
     --secondary: 355 79% 96%;
     --secondary-foreground: 355 79% 30%;
@@ -80,5 +81,14 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-primary {
+    @apply bg-gradient-to-r from-primary to-[hsl(var(--primary-gradient-to))] bg-clip-text text-transparent;
+  }
+  .text-primary-solid {
+    color: hsl(var(--primary));
   }
 }

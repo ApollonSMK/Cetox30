@@ -31,7 +31,7 @@ export function Guarantee() {
                     <div className="relative">
                         <div className="absolute -inset-4 bg-primary/10 rounded-full blur-2xl"></div>
                         <div className="relative bg-white rounded-full p-8 shadow-lg border border-gray-100">
-                             <ShieldCheck className="h-24 w-24 text-primary" />
+                             <ShieldCheck className="h-24 w-24 text-primary-solid" />
                         </div>
                     </div>
                 </div>

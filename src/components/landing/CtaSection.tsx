@@ -3,7 +3,7 @@ import Image from "next/image";
 export function CtaSection() {
   return (
     <section id="comprar" className="w-full py-12 md:py-16 lg:py-20 bg-secondary/30">
-      <div className="container px-4 md:px-6">
+      <div className="px-4 md:px-6">
         <div className="text-center mb-12">
             <p className="text-primary font-bold">A SUA TRANSFORMAÇÃO COMEÇA AQUI</p>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">

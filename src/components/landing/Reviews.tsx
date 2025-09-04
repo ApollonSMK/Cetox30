@@ -35,7 +35,7 @@ const reviews = [
 export function Reviews() {
   return (
     <section id="reviews" className="w-full py-6 md:py-8 lg:py-10 bg-secondary/30">
-      <div className="container px-4 md:px-6">
+      <div className="px-4 md:px-6">
         <div className="text-center mb-12 flex flex-col items-center">
             <Badge variant="secondary" className="mb-4 text-base py-2 px-4 rounded-full bg-primary/10 text-primary border-primary/20">
                 <Users className="h-5 w-5 mr-2" />
@@ -46,7 +46,7 @@ export function Reviews() {
                 Com o plano <span className="font-bold text-primary">CETOX30</span>
             </p>
         </div>
-        <div className="grid grid-cols-1 gap-8 px-4 md:grid-cols-2 lg:grid-cols-3 md:px-6">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {reviews.map((review, i) => (
             <Card key={i} className="flex flex-col bg-card shadow-lg rounded-xl overflow-hidden">
               <div className="relative">

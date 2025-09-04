@@ -16,17 +16,17 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-[100dvh] bg-background">
       <Header />
-      <main className="flex-1">
-        <Hero />
+      <main className="flex-1 container">
         <Frustrations />
         <Creator />
+        <Hero />
         <Benefits />
         <BeforeAfter />
         <ProductInfo />
         <Reviews />
         <CtaSection />
-        <FinalCta />
         <Guarantee />
+        <FinalCta />
         <Faq />
       </main>
       <Footer />

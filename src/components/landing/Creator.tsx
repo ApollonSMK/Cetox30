@@ -4,7 +4,7 @@ import Image from "next/image";
 export function Creator() {
   return (
     <section id="creator" className="w-full py-12 md:py-16 lg:py-20 bg-background">
-      <div className="container px-4 md:px-6">
+      <div className="px-4 md:px-6">
         <div className="text-center mb-12">
             <p className="text-lg md:text-xl text-foreground">Se respondeu <span className="font-bold text-primary">SIM</span> a qualquer uma destas perguntas...</p>
             <p className="text-2xl md:text-3xl font-bold font-headline mt-2">Então o CETOX30 foi feito especialmente para SI!</p>

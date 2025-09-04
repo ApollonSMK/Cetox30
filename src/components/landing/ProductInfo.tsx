@@ -27,11 +27,9 @@ const conquests = [
 export function ProductInfo() {
   return (
     <section id="conquistas" className="w-full py-6 md:py-8 lg:py-10 bg-secondary/30">
-      <div className="container px-4 md:px-6 space-y-12">
+      <div className="px-4 md:px-6 space-y-12">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">O QUE VAI <span className="text-primary">DESCOBRIR</span> NO <span className="text-primary">PLANO</span></h2>
-          </div>
         </div>
         <div className="mx-auto grid max-w-5xl items-stretch justify-center gap-6 sm:grid-cols-2 md:gap-8 lg:max-w-none lg:grid-cols-4 mt-12">
             {conquests.map((item, index) => (

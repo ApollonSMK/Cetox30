@@ -22,11 +22,12 @@ export function FinalCta() {
             return { hours: 0, minutes: 0, seconds: 0 };
         };
 
-        setTimeLeft(calculateTimeLeft());
-
         const timer = setInterval(() => {
             setTimeLeft(calculateTimeLeft());
         }, 1000);
+
+        // Set initial time so there's no mismatch
+        setTimeLeft(calculateTimeLeft());
 
         return () => clearInterval(timer);
     }, []);
@@ -38,7 +39,7 @@ export function FinalCta() {
 
     return (
         <section className="w-full py-12 md:py-16 lg:py-20 bg-background">
-            <div className="container px-4 md:px-6">
+            <div className="px-4 md:px-6">
                 <div className="max-w-3xl mx-auto border-2 border-muted rounded-xl shadow-lg p-6 sm:p-8 space-y-6">
                     <h2 className="text-center text-2xl sm:text-3xl font-bold uppercase">
                         <span className="text-destructive">Atenção:</span> Oferta por Tempo Limitado!

@@ -36,14 +36,13 @@ export function Creator() {
                   </p>
                 </div>
               </div>
-              <div className="relative md:w-2/5 flex items-center justify-center p-6 md:p-0">
+              <div className="relative aspect-[3/4] md:w-2/5">
                 <Image
-                  src="https://images.unsplash.com/photo-1522844990619-4951c40f7eda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlbWFncmVjZXJ8ZW58MHx8fHwxNzU2OTg4MDUzfDA&ixlib=rb-4.1.0&q=80&w=1080"
+                  src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYXJ8ZW58MHx8fHwxNzU2OTE5NDQxfDA&ixlib=rb-4.1.0&q=80&w=1080"
                   alt="Criador do Plano Cetox30"
-                  width={600}
-                  height={800}
+                  fill
                   data-ai-hint="man smiling portrait"
-                  className="w-full h-auto md:h-full object-cover rounded-lg shadow-md"
+                  className="object-cover"
                 />
               </div>
             </div>

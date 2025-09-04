@@ -25,7 +25,7 @@ export function BeforeAfter() {
           <h4 className="text-xl font-semibold tracking-tighter sm:text-3xl font-headline text-primary mt-2">Plano de emagrecimento Cetox30</h4>
           <p className="max-w-[800px] mx-auto text-muted-foreground md:text-xl/relaxed mt-4">Dentro do programa, terá acesso a um guia passo a passo ao longo de 30 dias, com orientações e um plano de dieta para perder até 10 quilos num único mês e conquistar o corpo que sempre desejou.</p>
         </div>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid max-w-5xl mx-auto gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {transformations.map((t, i) => (
               <Card key={i} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardContent className="p-0">

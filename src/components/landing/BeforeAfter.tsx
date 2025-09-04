@@ -4,15 +4,15 @@ import { Card, CardContent } from "@/components/ui/card";
 export function BeforeAfter() {
   const transformations = [
     {
-      image: "https://picsum.photos/400/500?random=2",
+      image: "https://picsum.photos/300/400?random=2",
       hint: "woman fit",
     },
     {
-      image: "https://picsum.photos/400/500?random=4",
+      image: "https://picsum.photos/300/400?random=4",
       hint: "man fit",
     },
     {
-      image: "https://picsum.photos/400/500?random=6",
+      image: "https://picsum.photos/300/400?random=6",
       hint: "happy person",
     },
   ];
@@ -32,10 +32,10 @@ export function BeforeAfter() {
                     <Image 
                       src={t.image} 
                       alt={`Transformação com o plano Cetox30 - Imagem ${i + 1}`} 
-                      width={400} 
-                      height={500} 
+                      width={300} 
+                      height={400} 
                       data-ai-hint={t.hint} 
-                      className="aspect-[4/5] object-cover w-full" 
+                      className="aspect-[3/4] object-cover w-full" 
                     />
                 </CardContent>
               </Card>

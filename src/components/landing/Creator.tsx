@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 export function Creator() {
   return (
     <section id="creator" className="w-full py-12 md:py-16 lg:py-20 bg-secondary/30">
-      <div className="container px-4 md:px-6">
+      <div className="container">
         <div className="space-y-4 text-center">
             <p className="text-lg md:text-xl text-foreground">Se respondeu <span className="font-bold text-primary">SIM</span> a qualquer uma destas perguntas...</p>
             <p className="text-2xl md:text-3xl font-bold font-headline">Então o CETOX30 foi feito especialmente para SI!</p>

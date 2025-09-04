@@ -2,12 +2,12 @@ import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
 import { Frustrations } from "@/components/landing/Frustrations";
 import { Creator } from "@/components/landing/Creator";
-import { ProductInfo } from "@/components/landing/ProductInfo";
-import { BeforeAfter } from "@/components/landing/BeforeAfter";
 import { Benefits } from "@/components/landing/Benefits";
+import { BeforeAfter } from "@/components/landing/BeforeAfter";
+import { ProductInfo } from "@/components/landing/ProductInfo";
 import { Reviews } from "@/components/landing/Reviews";
-import { Faq } from "@/components/landing/Faq";
 import { CtaSection } from "@/components/landing/CtaSection";
+import { Faq } from "@/components/landing/Faq";
 import { Footer } from "@/components/landing/Footer";
 
 export default function Home() {
@@ -18,12 +18,12 @@ export default function Home() {
         <Hero />
         <Frustrations />
         <Creator />
-        <ProductInfo />
-        <BeforeAfter />
         <Benefits />
+        <BeforeAfter />
+        <ProductInfo />
         <Reviews />
-        <Faq />
         <CtaSection />
+        <Faq />
       </main>
       <Footer />
     </div>

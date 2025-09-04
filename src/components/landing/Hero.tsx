@@ -18,7 +18,7 @@ export function Hero() {
 
         <div className="w-full max-w-4xl">
           <Image
-            src="https://placehold.co/800x450"
+            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkaWV0YXxlbnwwfHx8fDE3NTY5ODgwMzl8MA&ixlib=rb-4.1.0&q=80&w=1080"
             data-ai-hint="woman smiling happy"
             alt="Mulher feliz com os resultados do plano Cetox30"
             width={800}

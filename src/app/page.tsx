@@ -14,22 +14,24 @@ import { Footer } from "@/components/landing/Footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-[100dvh] bg-background">
-      <Header />
-      <main className="flex-1">
-        <Hero />
-        <Frustrations />
-        <Creator />
-        <Benefits />
-        <BeforeAfter />
-        <ProductInfo />
-        <Reviews />
-        <CtaSection />
-        <Guarantee />
-        <FinalCta />
-        <Faq />
-      </main>
-      <Footer />
+    <div className="mx-auto max-w-screen-2xl">
+      <div className="flex flex-col min-h-[100dvh] bg-background">
+        <Header />
+        <main className="flex-1">
+          <Hero />
+          <Frustrations />
+          <Creator />
+          <Benefits />
+          <BeforeAfter />
+          <ProductInfo />
+          <Reviews />
+          <CtaSection />
+          <Guarantee />
+          <FinalCta />
+          <Faq />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }

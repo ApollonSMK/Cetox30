@@ -35,12 +35,12 @@ export function Hero() {
             🔥 OFERTA LIMITADA: Apenas 15 vagas restantes! Garanta já a sua!
           </Badge>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4">
             <span className="text-2xl text-muted-foreground line-through">67,98€</span>
-            <span className="text-5xl font-bold text-primary">33,99€</span>
+            <span className="text-4xl sm:text-5xl font-bold text-primary">33,99€</span>
           </div>
 
-          <Button asChild size="lg" className="font-bold text-xl h-14 animate-breathing-pulse shadow-xl">
+          <Button asChild size="lg" className="font-bold text-xl h-14 animate-breathing-pulse shadow-xl w-full sm:w-auto">
             <a href="#comprar">Quero Emagrecer Agora</a>
           </Button>
         </div>

@@ -9,8 +9,8 @@ export function Header() {
           <Flame className="h-6 w-6 text-primary" />
           <span className="text-xl font-extrabold tracking-tight">Plano Cetox30</span>
         </a>
-        <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold shadow-md transition-transform hover:scale-105">
-          <a href="#comprar">Quero Emagrecer Agora</a>
+        <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold shadow-md transition-transform hover:scale-105 px-2 text-sm sm:px-4 sm:text-base">
+          <a href="#comprar">Quero Emagrecer</a>
         </Button>
       </div>
     </header>

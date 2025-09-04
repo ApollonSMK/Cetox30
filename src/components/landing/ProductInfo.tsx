@@ -1,4 +1,5 @@
 import { XCircle, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 const frustrations = [
@@ -28,22 +29,22 @@ const solutions = [
     {
       icon: <CheckCircle className="h-8 w-8 text-primary" />,
       title: "Queima de Gordura Automática",
-      description: "Ative a queima de gordura 24h por dia, comendo o que gosta e sem exercício físico.",
+      description: "Como ativar a queima de gordura automática 24 horas por dia, enquanto come o que mais gosta, sem sofrimento e sem praticar exercício físico.",
     },
     {
       icon: <CheckCircle className="h-8 w-8 text-primary" />,
-      title: "O Verdadeiro Culpado do Peso",
-      description: "Descubra o que realmente impede a sua perda de peso e como usar a gordura a seu favor.",
+      title: "O Verdadeiro Culpado do Excesso de Peso",
+      description: "O verdadeiro culpado que impede a sua perda de peso, e como os alimentos ricos em gordura podem ajudar a emagrecer mais rápido.",
     },
     {
       icon: <CheckCircle className="h-8 w-8 text-primary" />,
-      title: "Cetose: O Segredo Rápido",
-      description: "Estimule um processo natural do corpo para uma queima de gordura mais eficiente.",
+      title: "Cetose: O Segredo para Emagrecer Rápido",
+      description: "O Cetox30 estimula a cetose, um processo natural do corpo, promovendo uma queima de gordura mais eficiente e acelerando a perda de peso.",
     },
     {
       icon: <CheckCircle className="h-8 w-8 text-primary" />,
-      title: "Receitas Aceleradoras",
-      description: "Aprenda receitas simples que aceleram o seu metabolismo e potenciam a cetose.",
+      title: "Receitas para Acelerar o Metabolismo",
+      description: "Receitas simples e rápidas que aceleram o metabolismo e potenciam o aumento da cetose.",
     },
   ];
 
@@ -57,10 +58,10 @@ export function ProductInfo() {
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Está Farto(a) de...</h2>
             </div>
           </div>
-          <div className="mx-auto grid max-w-4xl items-start gap-6 sm:grid-cols-2 md:gap-8 mt-12">
+          <div className="mx-auto grid max-w-4xl items-stretch gap-6 sm:grid-cols-2 md:gap-8 mt-12">
             {frustrations.map((item, index) => (
-              <Card key={index} className="flex flex-col text-center bg-white shadow-md">
-                <CardHeader className="items-center gap-4 p-6">
+              <Card key={index} className="flex flex-col text-center bg-white shadow-md h-full">
+                <CardHeader className="flex flex-col items-center gap-4 p-6 flex-1">
                   {item.icon}
                   <div className="space-y-1">
                     <CardTitle className="font-bold text-xl">{item.title}</CardTitle>
@@ -70,15 +71,27 @@ export function ProductInfo() {
               </Card>
             ))}
           </div>
+           <div className="text-center mt-12">
+            <p className="text-lg md:text-xl text-foreground">Se respondeu <span className="font-bold text-primary">SIM</span> a qualquer uma destas perguntas...</p>
+            <p className="text-2xl md:text-3xl font-bold font-headline mt-2">Então o CETOX30 foi feito especialmente para SI!</p>
+          </div>
         </div>
       </section>
+       <section id="apresentacao" className="w-full py-12 md:py-24 lg:py-32 bg-background">
+         <div className="container px-4 md:px-6 text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Apresentamos o <span className="text-primary">CETOX30</span></h2>
+            <p className="max-w-[800px] mx-auto text-muted-foreground md:text-xl/relaxed mt-4">
+              O único método cientificamente comprovado que garante resultados transformadores em apenas 30 dias, ou recebe 100% do seu dinheiro de volta!
+            </p>
+         </div>
+       </section>
       <section id="conquistas" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/30">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">O que vai conquistar com o <span className="text-primary">Cetox30</span></h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">O Que Vai Descobrir no Plano <span className="text-primary">Cetox30</span></h2>
                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                O único método cientificamente comprovado que garante resultados transformadores em apenas 30 dias.
+                Dentro do programa, terá acesso a um guia passo a passo ao longo de 30 dias, com orientações e um plano de dieta para perder até 10 quilos num único mês e conquistar o corpo que sempre desejou.
               </p>
             </div>
           </div>

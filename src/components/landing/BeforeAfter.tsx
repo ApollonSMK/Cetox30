@@ -4,28 +4,28 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 const testimonials = [
   {
-    name: "Transformação 1",
+    name: "Resultados em 7 Dias",
     before: "https://picsum.photos/400/500?random=1",
     after: "https://picsum.photos/400/500?random=2",
     beforeHint: "woman overweight",
     afterHint: "woman fit",
-    result: "Resultados visíveis em 7 dias",
+    description: "Começará a ver os primeiros resultados logo na primeira semana. O nosso método é tão eficaz que 94% dos utilizadores relatam mudanças significativas nos primeiros 7 dias.",
   },
   {
-    name: "Transformação 2",
+    name: "Sistema Passo a Passo",
     before: "https://picsum.photos/400/500?random=3",
     after: "https://picsum.photos/400/500?random=4",
     beforeHint: "man overweight",
     afterHint: "man fit",
-    result: "Sistema Passo a Passo",
+    description: "Não há espaço para dúvidas. A cada dia saberá exatamente o que fazer, quando fazer e como fazer para alcançar os seus objetivos.",
   },
   {
-    name: "Transformação 3",
+    name: "Transformação Completa",
     before: "https://picsum.photos/400/500?random=5",
     after: "https://picsum.photos/400/500?random=6",
     beforeHint: "sad person",
     afterHint: "happy person",
-    result: "Transformação Completa",
+    description: "Não se trata apenas de um aspeto da sua vida. O CETOX30 trabalha de forma holística para transformar TODAS as áreas importantes da sua vida.",
   },
 ];
 
@@ -35,15 +35,15 @@ export function BeforeAfter() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Transformação Antes e Depois com o Plano Cetox30</h2>
-          <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">Começará a ver os primeiros resultados logo na primeira semana. 94% dos utilizadores relatam mudanças significativas.</p>
+          <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">Veja o que o nosso método pode fazer por si em apenas 30 dias.</p>
         </div>
         <Carousel className="w-full max-w-6xl mx-auto" opts={{ loop: true }}>
           <CarouselContent>
             {testimonials.map((t, i) => (
               <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <Card className="overflow-hidden">
-                    <CardContent className="flex flex-col items-center justify-center p-6 gap-4">
+                <div className="p-1 h-full">
+                  <Card className="overflow-hidden flex flex-col h-full">
+                    <CardContent className="flex flex-col items-center justify-center p-6 gap-4 flex-1">
                       <div className="flex justify-around w-full">
                         <div className="text-center space-y-2">
                           <Image src={t.before} alt={`Antes - ${t.name}`} width={200} height={250} data-ai-hint={t.beforeHint} className="rounded-lg shadow-md aspect-[4/5] object-cover" />
@@ -55,7 +55,8 @@ export function BeforeAfter() {
                         </div>
                       </div>
                       <div className="mt-4 text-center space-y-2">
-                        <p className="text-2xl font-bold text-primary">{t.result}</p>
+                        <p className="text-2xl font-bold text-primary">{t.name}</p>
+                        <p className="text-muted-foreground text-sm">{t.description}</p>
                       </div>
                     </CardContent>
                   </Card>

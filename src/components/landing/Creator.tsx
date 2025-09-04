@@ -8,11 +8,15 @@ export function Creator() {
     <section id="creator" className="w-full py-12 md:py-16 lg:py-20 bg-secondary/30">
       <div className="container px-4 md:px-6">
         <div className="space-y-6 text-center">
-            <p className="text-lg md:text-xl text-foreground">Se respondeu <span className="font-bold text-primary">SIM</span> a qualquer uma destas perguntas...</p>
-            <p className="text-2xl md:text-3xl font-bold font-headline">Então o CETOX30 foi feito especialmente para SI!</p>
+          <p className="text-lg md:text-xl text-foreground">
+            Se respondeu <span className="font-bold text-primary">SIM</span> a qualquer uma destas perguntas...
+          </p>
+          <p className="text-2xl md:text-3xl font-bold font-headline">
+            Então o CETOX30 foi feito especialmente para SI!
+          </p>
         </div>
 
-        <div className="max-w-6xl mx-auto mt-12">
+        <div className="mt-12">
           <Card className="overflow-hidden shadow-xl bg-background">
             <div className="flex flex-col md:flex-row">
               <div className="flex-1 p-6 md:p-10 flex flex-col justify-center">
@@ -46,12 +50,12 @@ export function Creator() {
         </div>
         
         <div className="text-center mt-12">
-            <Button asChild size="lg" className="h-14 px-8 font-bold text-xl animate-breathing-pulse">
-                <a href="#comprar">
-                    QUERO TRANSFORMAR O MEU CORPO
-                    <ArrowRight className="ml-2"/>
-                </a>
-            </Button>
+          <Button asChild size="lg" className="h-14 px-8 font-bold text-xl animate-breathing-pulse">
+            <a href="#comprar">
+              QUERO TRANSFORMAR O MEU CORPO
+              <ArrowRight className="ml-2"/>
+            </a>
+          </Button>
         </div>
       </div>
     </section>

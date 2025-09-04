@@ -29,11 +29,23 @@ const prompt = ai.definePrompt({
   name: 'faqWithAIPrompt',
   input: {schema: FAQWithAIInputSchema},
   output: {schema: FAQWithAIOutputSchema},
-  prompt: `You are a helpful AI assistant specialized in answering questions about Cetox30.
+  prompt: `You are a helpful AI assistant specialized in answering questions about the Cetox30 plan.
 
   Use the following information to answer the question.
 
-  Cetox30 is a revolutionary weight loss product designed to help you achieve your ideal body quickly and safely. With its unique blend of natural ingredients, Cetox30 boosts your metabolism, reduces appetite, and burns fat effectively. Experience a transformation in just 30 days!
+  The Cetox30 Plan is a revolutionary 30-day weight loss system that helps people lose up to 10 kilos in a single month. It's designed for people who have tried everything without success. It's a simple 30-day eating plan that helps you achieve the body you want without going hungry. The plan is scientifically proven and comes with a 100% money-back guarantee.
+
+  Key features:
+  - See results in the first 7 days.
+  - Step-by-step system, so you know exactly what to do each day.
+  - Holistic transformation of your life.
+  - Activates automatic fat burning 24 hours a day, while eating what you like, without suffering and without physical exercise.
+  - Uncovers the true culprit of excess weight and how high-fat foods can help you lose weight faster.
+  - Stimulates ketosis, a natural process of the body, promoting more efficient fat burning.
+  - Includes simple and quick recipes that speed up metabolism and enhance ketosis.
+  - Comes with two exclusive bonuses: "CETOX30 DESSERTS" and "SECRETS FOR A SUCCESSFUL DIET" ebooks.
+  
+  The plan has a 15-day unconditional guarantee.
 
   Question: {{{question}}}
   `,

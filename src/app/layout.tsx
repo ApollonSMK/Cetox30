@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Cetox30 - Transforme seu corpo em 30 dias',
-  description: 'A fórmula revolucionária para emagrecimento rápido e seguro. Acelere seu metabolismo, queime gordura e iniba o apetite com Cetox30.',
+  title: 'Plano Cetox30 - Perca peso em 30 dias',
+  description: 'Descubra como perder peso em casa sem deixar de comer o que mais gosta com o plano Cetox30.',
 };
 
 export default function RootLayout({

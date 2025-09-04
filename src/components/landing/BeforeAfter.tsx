@@ -4,57 +4,58 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 const testimonials = [
   {
-    name: "Juliana S.",
+    name: "Transformação 1",
     before: "https://picsum.photos/400/500?random=1",
     after: "https://picsum.photos/400/500?random=2",
     beforeHint: "woman overweight",
     afterHint: "woman fit",
-    result: "Perdeu 12kg em 30 dias!",
+    result: "Resultados visíveis em 7 dias",
   },
   {
-    name: "Marcos P.",
+    name: "Transformação 2",
     before: "https://picsum.photos/400/500?random=3",
     after: "https://picsum.photos/400/500?random=4",
     beforeHint: "man overweight",
     afterHint: "man fit",
-    result: "Menos 15kg e mais energia!",
+    result: "Sistema Passo a Passo",
   },
   {
-    name: "Carla M.",
+    name: "Transformação 3",
     before: "https://picsum.photos/400/500?random=5",
     after: "https://picsum.photos/400/500?random=6",
-    beforeHint: "woman looking sad",
-    afterHint: "woman smiling",
-    result: "Recuperei minha autoestima!",
+    beforeHint: "sad person",
+    afterHint: "happy person",
+    result: "Transformação Completa",
   },
 ];
 
 export function BeforeAfter() {
   return (
-    <section id="resultados" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/30">
+    <section id="resultados" className="w-full py-12 md:py-24 lg:py-32 bg-background">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Resultados Reais de Clientes Satisfeitos</h2>
-          <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">Veja a transformação que o Cetox30 proporcionou na vida de pessoas como você.</p>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Transformação Antes e Depois com o Plano Cetox30</h2>
+          <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">Começará a ver os primeiros resultados logo na primeira semana. 94% dos utilizadores relatam mudanças significativas.</p>
         </div>
         <Carousel className="w-full max-w-6xl mx-auto" opts={{ loop: true }}>
           <CarouselContent>
             {testimonials.map((t, i) => (
-              <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/1">
+              <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
                   <Card className="overflow-hidden">
-                    <CardContent className="flex flex-col lg:flex-row items-center justify-center p-6 gap-6 md:gap-8">
-                      <div className="text-center space-y-2">
-                        <Image src={t.before} alt={`Antes - ${t.name}`} width={300} height={400} data-ai-hint={t.beforeHint} className="rounded-lg shadow-md aspect-[3/4] object-cover" />
-                        <h3 className="font-bold text-lg bg-gray-200 text-gray-800 rounded-full px-4 py-1 inline-block">ANTES</h3>
+                    <CardContent className="flex flex-col items-center justify-center p-6 gap-4">
+                      <div className="flex justify-around w-full">
+                        <div className="text-center space-y-2">
+                          <Image src={t.before} alt={`Antes - ${t.name}`} width={200} height={250} data-ai-hint={t.beforeHint} className="rounded-lg shadow-md aspect-[4/5] object-cover" />
+                          <h3 className="font-bold text-md bg-gray-200 text-gray-800 rounded-full px-3 py-1 inline-block">ANTES</h3>
+                        </div>
+                        <div className="text-center space-y-2">
+                          <Image src={t.after} alt={`Depois - ${t.name}`} width={200} height={250} data-ai-hint={t.afterHint} className="rounded-lg shadow-md aspect-[4/5] object-cover" />
+                          <h3 className="font-bold text-md bg-primary text-primary-foreground rounded-full px-3 py-1 inline-block">DEPOIS</h3>
+                        </div>
                       </div>
-                      <div className="text-center space-y-2">
-                        <Image src={t.after} alt={`Depois - ${t.name}`} width={300} height={400} data-ai-hint={t.afterHint} className="rounded-lg shadow-md aspect-[3/4] object-cover" />
-                        <h3 className="font-bold text-lg bg-primary text-primary-foreground rounded-full px-4 py-1 inline-block">DEPOIS</h3>
-                      </div>
-                      <div className="lg:ml-6 text-center lg:text-left space-y-2 lg:max-w-[200px]">
-                        <p className="text-3xl font-extrabold text-primary">{t.result}</p>
-                        <p className="text-xl font-semibold mt-2">{t.name}</p>
+                      <div className="mt-4 text-center space-y-2">
+                        <p className="text-2xl font-bold text-primary">{t.result}</p>
                       </div>
                     </CardContent>
                   </Card>

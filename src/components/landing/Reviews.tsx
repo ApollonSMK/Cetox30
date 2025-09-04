@@ -1,65 +1,53 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const reviews = [
   {
-    name: "Amanda L.",
+    name: "Bárbara",
+    location: "Portugal",
     avatar: "https://picsum.photos/100/100?random=7",
     avatarHint: "woman portrait",
-    rating: 5,
-    text: "Estou chocada com os resultados! O Cetox30 realmente funciona. Perdi peso e me sinto muito mais disposta. Recomendo demais!",
+    text: "Após vários anos, tudo mudou quando conheci a dieta Cetox30. Perdi peso sem ir ao ginásio, mudei a minha rotina diária e conquistei o corpo que sonhava ter há anos.",
   },
   {
-    name: "Ricardo F.",
+    name: "José",
+    location: "Suíça",
     avatar: "https://picsum.photos/100/100?random=8",
     avatarHint: "man portrait",
-    rating: 5,
-    text: "Finalmente um produto que cumpre o que promete. Minha fome diminuiu muito e já vejo diferença nas roupas. Valeu cada centavo.",
+    text: "Há alguns meses tive um princípio de enfarte devido ao meu excesso de peso. O médico recomendou-me perder 35 quilos, o mais rápido possível. Encontrei a dieta Cetox30 e hoje estou 28 quilos mais leve.",
   },
   {
-    name: "Fernanda C.",
+    name: "Stephanie",
+    location: "Luxemburgo",
     avatar: "https://picsum.photos/100/100?random=9",
     avatarHint: "smiling woman",
-    rating: 4,
-    text: "Gostei bastante, o produto ajudou a controlar minha ansiedade por doces. O resultado está vindo aos poucos, mas estou otimista!",
+    text: "Sempre lutei contra a balança e não tive sucesso em nenhuma dieta. Com a dieta Cetox30, hoje estou dentro do meu peso e cheia de saúde. Foi a melhor decisão que tomei!",
   },
 ];
 
-function Rating({ value }: { value: number }) {
-  return (
-    <div className="flex items-center gap-0.5">
-      {Array.from({ length: 5 }, (_, i) => (
-        <Star key={i} className={`h-5 w-5 ${i < value ? "fill-accent text-accent" : "fill-muted stroke-muted-foreground"}`} />
-      ))}
-    </div>
-  );
-}
 
 export function Reviews() {
   return (
-    <section id="reviews" className="w-full py-12 md:py-24 lg:py-32 bg-background">
+    <section id="reviews" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/30">
       <div className="container px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">O que Nossos Clientes Dizem</h2>
-          <p className="max-w-[600px] mx-auto text-muted-foreground md:text-xl/relaxed">A satisfação de quem já usou é a nossa maior propaganda.</p>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">850+ Clientes Felizes</h2>
+          <p className="max-w-[600px] mx-auto text-muted-foreground md:text-xl/relaxed">Histórias Reais de Sucesso com o plano CETOX30</p>
         </div>
         <div className="grid grid-cols-1 gap-6 px-4 md:grid-cols-2 lg:grid-cols-3 md:px-6">
           {reviews.map((review, i) => (
             <Card key={i} className="flex flex-col">
               <CardHeader>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <Avatar>
-                      <AvatarImage src={review.avatar} data-ai-hint={review.avatarHint} />
-                      <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <p className="font-bold">{review.name}</p>
-                      <p className="text-sm text-muted-foreground">Cliente Verificado</p>
-                    </div>
+                <div className="flex items-center gap-3">
+                  <Avatar>
+                    <AvatarImage src={review.avatar} data-ai-hint={review.avatarHint} />
+                    <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="font-bold">{review.name}</p>
+                    <p className="text-sm text-muted-foreground">{review.location}</p>
                   </div>
-                  <Rating value={review.rating} />
                 </div>
               </CardHeader>
               <CardContent className="flex-1">
@@ -67,6 +55,11 @@ export function Reviews() {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+            <Button asChild size="lg">
+                <a href="#comprar">QUERO JUNTAR-ME A ELES</a>
+            </Button>
         </div>
       </div>
     </section>

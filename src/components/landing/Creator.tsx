@@ -21,6 +21,15 @@ export function Creator() {
         <div className="mt-12 max-w-4xl mx-auto">
           <Card className="overflow-hidden shadow-xl bg-background w-full">
               <div className="md:grid md:grid-cols-2">
+                  <div className="relative aspect-[3/4] md:aspect-auto">
+                    <Image
+                      src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYXJ8ZW58MHx8fHwxNzU2OTE5NDQxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+                      alt="Criador do Plano Cetox30"
+                      fill
+                      data-ai-hint="man smiling portrait"
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="p-6 md:p-10 flex flex-col justify-center">
                     <div className="space-y-4 text-left">
                       <h3 className="text-3xl md:text-4xl font-bold tracking-tighter !leading-tight font-headline break-words">
@@ -36,15 +45,6 @@ export function Creator() {
                         Após anos de pesquisa para me livrar de situações humilhantes causadas pelo excesso de peso, descobri um segredo. Um plano alimentar simples de 30 dias que o vai ajudar a conquistar o corpo que deseja, sem passar fome.
                       </p>
                     </div>
-                  </div>
-                  <div className="relative aspect-[3/4]">
-                    <Image
-                      src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYXJ8ZW58MHx8fHwxNzU2OTE5NDQxfDA&ixlib=rb-4.1.0&q=80&w=1080"
-                      alt="Criador do Plano Cetox30"
-                      fill
-                      data-ai-hint="man smiling portrait"
-                      className="object-cover"
-                    />
                   </div>
               </div>
           </Card>

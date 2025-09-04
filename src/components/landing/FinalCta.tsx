@@ -1,51 +1,85 @@
+"use client";
+
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from 'lucide-react';
 
 export function FinalCta() {
-  return (
-    <section className="w-full py-12 md:py-16 lg:py-20 bg-background">
-      <div className="container px-4 md:px-6">
-        <div className="max-w-4xl mx-auto text-center border-t pt-12 space-y-4">
-          <p className="text-lg text-muted-foreground font-semibold">
-            TENHA ACESSO AO PLANO CETOX30 COM 70% DE DESCONTO HOJE!
-          </p>
-          <p className="text-lg text-muted-foreground">
-            De <span className="line-through">107,97€</span> por apenas:
-          </p>
-          <p className="text-5xl lg:text-6xl font-extrabold text-primary">
-            33,99€{" "}
-            <span className="text-lg font-medium text-muted-foreground">
-              (+IVA)
-            </span>
-          </p>
-          <Button
-            asChild
-            size="lg"
-            className="w-full max-w-md font-bold text-xl animate-breathing-pulse shadow-xl h-14"
-          >
-            <a href="#">Inscrever-me Agora</a>
-          </Button>
-          <p className="text-sm text-muted-foreground">
-            ATENÇÃO: OFERTA POR TEMPO LIMITADO!
-          </p>
-          <p className="text-sm text-muted-foreground">
-            Apenas 15 vagas restantes com desconto especial!
-          </p>
-        </div>
+    const calculateTimeLeft = () => {
+        let year = new Date().getFullYear();
+        // Set a fixed target date for demonstration, e.g., end of the current day
+        const difference = +new Date(`${year}-12-31T23:59:59`) - +new Date();
 
-        <div className="max-w-4xl mx-auto mt-16 text-center bg-secondary/30 p-8 rounded-lg border shadow-lg">
-          <h3 className="text-2xl font-bold mb-4">O seu Risco é ZERO!</h3>
-          <p className="text-muted-foreground mb-4">
-            Temos tanta confiança nos resultados que o plano CETOX30 pode
-            proporcionar que lhe oferecemos uma garantia incondicional de 15
-            dias. Se, por qualquer motivo, não ficar completamente satisfeito,
-            basta enviar-nos um e-mail e devolveremos 100% do seu investimento.
-            Sem perguntas, sem complicações.
-          </p>
-          <Button asChild size="lg">
-            <a href="#comprar">QUERO TRANSFORMAR O MEU CORPO</a>
-          </Button>
-        </div>
-      </div>
-    </section>
-  );
+        let timeLeft = {};
+
+        if (difference > 0) {
+            timeLeft = {
+                hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                minutes: Math.floor((difference / 1000 / 60) % 60),
+                seconds: Math.floor((difference / 1000) % 60)
+            };
+        }
+
+        return timeLeft;
+    };
+
+    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setTimeLeft(calculateTimeLeft());
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    });
+
+    const formatTime = (time) => {
+        return time < 10 ? `0${time}` : time;
+    };
+
+    return (
+        <section className="w-full py-12 md:py-16 lg:py-20 bg-background">
+            <div className="container px-4 md:px-6">
+                <div className="max-w-3xl mx-auto border-2 border-muted rounded-xl shadow-lg p-6 sm:p-8 space-y-6">
+                    <h2 className="text-center text-2xl sm:text-3xl font-bold uppercase">
+                        <span className="text-destructive">Atenção:</span> Oferta por Tempo Limitado!
+                    </h2>
+                    
+                    <div className="bg-destructive text-destructive-foreground rounded-lg p-4 text-center">
+                        <p className="text-sm mb-2">Esta oferta termina em:</p>
+                        <div className="flex justify-center items-center gap-2 sm:gap-4">
+                            <div className="flex flex-col items-center">
+                                <span className="text-3xl sm:text-4xl font-bold">{formatTime(timeLeft.hours || 0)}</span>
+                                <span className="text-xs uppercase">Horas</span>
+                            </div>
+                            <span className="text-3xl sm:text-4xl font-bold">:</span>
+                            <div className="flex flex-col items-center">
+                                <span className="text-3xl sm:text-4xl font-bold">{formatTime(timeLeft.minutes || 0)}</span>
+                                <span className="text-xs uppercase">Min</span>
+                            </div>
+                            <span className="text-3xl sm:text-4xl font-bold">:</span>
+                            <div className="flex flex-col items-center">
+                                <span className="text-3xl sm:text-4xl font-bold">{formatTime(timeLeft.seconds || 0)}</span>
+                                <span className="text-xs uppercase">Seg</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p className="text-center text-muted-foreground">
+                        Apenas <span className="font-bold text-destructive">15 vagas</span> restantes com desconto especial!
+                    </p>
+
+                    <div className="bg-primary/10 rounded-lg p-6 text-center space-y-4">
+                         <h3 className="text-xl sm:text-2xl font-bold text-primary">TENHA ACESSO AO PLANO CETOX30 COM 70% DE DESCONTO HOJE!</h3>
+                         <Button asChild size="lg" className="w-full sm:w-auto font-bold animate-breathing-pulse">
+                            <a href="#">
+                                INSCREVER-ME AGORA
+                                <ArrowRight className="ml-2 h-5 w-5" />
+                            </a>
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 }

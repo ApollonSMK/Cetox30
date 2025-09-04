@@ -8,6 +8,7 @@ import { ProductInfo } from "@/components/landing/ProductInfo";
 import { Reviews } from "@/components/landing/Reviews";
 import { CtaSection } from "@/components/landing/CtaSection";
 import { FinalCta } from "@/components/landing/FinalCta";
+import { Guarantee } from "@/components/landing/Guarantee";
 import { Faq } from "@/components/landing/Faq";
 import { Footer } from "@/components/landing/Footer";
 
@@ -25,6 +26,7 @@ export default function Home() {
         <Reviews />
         <CtaSection />
         <FinalCta />
+        <Guarantee />
         <Faq />
       </main>
       <Footer />

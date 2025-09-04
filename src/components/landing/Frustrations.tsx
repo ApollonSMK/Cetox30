@@ -48,10 +48,6 @@ export function Frustrations() {
               </Card>
             ))}
           </div>
-           <div className="text-center mt-12">
-            <p className="text-lg md:text-xl text-foreground">Se respondeu <span className="font-bold text-primary">SIM</span> a qualquer uma destas perguntas...</p>
-            <p className="text-2xl md:text-3xl font-bold font-headline mt-2">Então o CETOX30 foi feito especialmente para SI!</p>
-          </div>
         </div>
       </section>
   );

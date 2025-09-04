@@ -57,7 +57,7 @@ export function ProductInfo() {
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Está Farto(a) de...</h2>
             </div>
           </div>
-          <div className="mx-auto grid max-w-5xl items-start gap-6 sm:grid-cols-2 md:gap-8 lg:max-w-none lg:grid-cols-4 mt-12">
+          <div className="mx-auto grid max-w-4xl items-start gap-6 sm:grid-cols-2 md:gap-8 mt-12">
             {frustrations.map((item, index) => (
               <Card key={index} className="text-center bg-muted/50 border-destructive/20">
                 <CardHeader className="items-center gap-4 p-6">

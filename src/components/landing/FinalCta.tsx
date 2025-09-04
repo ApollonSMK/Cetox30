@@ -5,35 +5,34 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
 
 export function FinalCta() {
-    const calculateTimeLeft = () => {
-        let year = new Date().getFullYear();
-        // Set a fixed target date for demonstration, e.g., end of the current day
-        const difference = +new Date(`${year}-12-31T23:59:59`) - +new Date();
-
-        let timeLeft = {};
-
-        if (difference > 0) {
-            timeLeft = {
-                hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-                minutes: Math.floor((difference / 1000 / 60) % 60),
-                seconds: Math.floor((difference / 1000) % 60)
-            };
-        }
-
-        return timeLeft;
-    };
-
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+    const [timeLeft, setTimeLeft] = useState<{ hours?: number; minutes?: number; seconds?: number } | null>(null);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
+        const calculateTimeLeft = () => {
+            const year = new Date().getFullYear();
+            const difference = +new Date(`${year}-12-31T23:59:59`) - +new Date();
+
+            if (difference > 0) {
+                return {
+                    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                    minutes: Math.floor((difference / 1000 / 60) % 60),
+                    seconds: Math.floor((difference / 1000) % 60)
+                };
+            }
+            return { hours: 0, minutes: 0, seconds: 0 };
+        };
+
+        setTimeLeft(calculateTimeLeft());
+
+        const timer = setInterval(() => {
             setTimeLeft(calculateTimeLeft());
         }, 1000);
 
-        return () => clearTimeout(timer);
-    });
+        return () => clearInterval(timer);
+    }, []);
 
-    const formatTime = (time) => {
+    const formatTime = (time: number | undefined) => {
+        if (time === undefined) return '00';
         return time < 10 ? `0${time}` : time;
     };
 
@@ -49,17 +48,17 @@ export function FinalCta() {
                         <p className="text-sm mb-2">Esta oferta termina em:</p>
                         <div className="flex justify-center items-center gap-2 sm:gap-4">
                             <div className="flex flex-col items-center">
-                                <span className="text-3xl sm:text-4xl font-bold">{formatTime(timeLeft.hours || 0)}</span>
+                                <span className="text-3xl sm:text-4xl font-bold">{timeLeft ? formatTime(timeLeft.hours) : '00'}</span>
                                 <span className="text-xs uppercase">Horas</span>
                             </div>
                             <span className="text-3xl sm:text-4xl font-bold">:</span>
                             <div className="flex flex-col items-center">
-                                <span className="text-3xl sm:text-4xl font-bold">{formatTime(timeLeft.minutes || 0)}</span>
+                                <span className="text-3xl sm:text-4xl font-bold">{timeLeft ? formatTime(timeLeft.minutes) : '00'}</span>
                                 <span className="text-xs uppercase">Min</span>
                             </div>
                             <span className="text-3xl sm:text-4xl font-bold">:</span>
                             <div className="flex flex-col items-center">
-                                <span className="text-3xl sm:text-4xl font-bold">{formatTime(timeLeft.seconds || 0)}</span>
+                                <span className="text-3xl sm:text-4xl font-bold">{timeLeft ? formatTime(timeLeft.seconds) : '00'}</span>
                                 <span className="text-xs uppercase">Seg</span>
                             </div>
                         </div>

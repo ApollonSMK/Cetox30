@@ -20,7 +20,7 @@ const solutions = [
     {
       icon: <CheckCircle className="h-8 w-8 text-primary" />,
       title: "Receitas para Acelerar o Metabolismo",
-      description: "Receitas simples e rápi<ctrl61>das que aceleram o metabolismo e potenciam o aumento da cetose.",
+      description: "Receitas simples e rápidas que aceleram o metabolismo e potenciam o aumento da cetose.",
     },
 ];
 
@@ -30,7 +30,7 @@ export function ProductInfo() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">O Que Vai Descobrir no Plano</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">O que vai conquistar...</h2>
           </div>
         </div>
         <div className="mx-auto grid max-w-5xl items-stretch justify-center gap-6 sm:grid-cols-2 md:gap-8 lg:max-w-none lg:grid-cols-4 mt-12">

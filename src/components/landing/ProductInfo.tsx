@@ -1,6 +1,7 @@
 import { XCircle, CheckCircle, Zap, TrendingUp, HeartHandshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Creator } from "@/components/landing/Creator";
 
 const frustrations = [
   {
@@ -95,6 +96,9 @@ export function ProductInfo() {
           </div>
         </div>
       </section>
+
+      <Creator />
+
        <section id="apresentacao" className="w-full py-12 md:py-24 lg:py-32 bg-background">
          <div className="container px-4 md:px-6 text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Apresentamos o <span className="text-primary">CETOX30</span></h2>

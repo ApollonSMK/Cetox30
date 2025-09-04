@@ -4,7 +4,7 @@ import { ArrowRight, ShieldCheck } from "lucide-react";
 export function Guarantee() {
   return (
     <section className="w-full py-12 md:py-16 lg:py-20 bg-background">
-        <div className="px-4 md:px-6">
+        <div className="container px-4 md:px-6">
             <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center max-w-5xl mx-auto">
                 <div className="space-y-6">
                     <h3 className="text-3xl font-bold font-headline">O seu Risco é <span className="text-primary">ZERO!</span></h3>

@@ -34,8 +34,8 @@ const reviews = [
 
 export function Reviews() {
   return (
-    <section id="reviews" className="w-full py-6 md:py-8 lg:py-10 bg-secondary/30">
-      <div className="px-4 md:px-6">
+    <section id="reviews" className="w-full py-12 md:py-16 lg:py-20 bg-secondary/30">
+      <div className="container px-4 md:px-6">
         <div className="text-center mb-12 flex flex-col items-center">
             <Badge variant="secondary" className="mb-4 text-base py-2 px-4 rounded-full bg-primary/10 text-primary border-primary/20">
                 <Users className="h-5 w-5 mr-2" />

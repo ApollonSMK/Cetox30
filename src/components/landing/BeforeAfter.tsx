@@ -19,7 +19,7 @@ export function BeforeAfter() {
 
   return (
     <section id="resultados" className="w-full py-12 md:py-16 lg:py-20 bg-background">
-      <div className="px-4 md:px-6">
+      <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <h3 className="text-2xl font-bold tracking-tighter sm:text-4xl font-headline">Método</h3>
           <h4 className="text-xl font-semibold tracking-tighter sm:text-3xl font-headline text-primary mt-2">Plano de emagrecimento Cetox30</h4>

@@ -21,7 +21,7 @@ const benefits = [
 export function Benefits() {
     return (
         <section id="apresentacao" className="w-full py-12 md:py-16 lg:py-20 bg-background">
-            <div className="px-4 md:px-6 text-center">
+            <div className="container px-4 md:px-6 text-center">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Apresentamos o <span className="text-primary">CETOX30</span></h2>
                 <p className="max-w-[800px] mx-auto text-muted-foreground md:text-xl/relaxed mt-4">
                     O único método cientificamente comprovado que garante resultados transformadores em apenas 30 dias, ou recebe 100% do seu dinheiro de volta!

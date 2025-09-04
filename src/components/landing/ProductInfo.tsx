@@ -26,8 +26,8 @@ const conquests = [
 
 export function ProductInfo() {
   return (
-    <section id="conquistas" className="w-full py-6 md:py-8 lg:py-10 bg-secondary/30">
-      <div className="px-4 md:px-6 space-y-12">
+    <section id="conquistas" className="w-full py-12 md:py-16 lg:py-20 bg-secondary/30">
+      <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">O QUE VAI <span className="text-primary">DESCOBRIR</span> NO <span className="text-primary">PLANO</span></h2>
         </div>

@@ -1,3 +1,4 @@
+"use client"
 import { XCircle } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 

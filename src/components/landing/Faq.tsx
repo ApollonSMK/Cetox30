@@ -47,7 +47,7 @@ export function Faq() {
 
   return (
     <section id="faq" className="w-full py-12 md:py-16 lg:py-20 bg-background">
-      <div className="px-4 md:px-6">
+      <div className="container px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
             Perguntas <span className="text-primary">FREQUENTES</span>

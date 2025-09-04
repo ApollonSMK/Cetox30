@@ -8,11 +8,11 @@ export function Hero() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center space-y-6">
           <div className="space-y-3">
-             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-primary">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-primary">
               Desafio
             </h2>
             <h1 className="text-4xl font-extrabold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline">
-              30 Dias para <span className="text-primary">perder peso</span> em casa sem deixar de <span className="text-primary">comer o que mais gosta!</span>
+              <span className="text-primary">30 Dias</span> para perder peso em casa <span className="text-primary">sem deixar de comer</span> o que mais gosta!
             </h1>
           </div>
 

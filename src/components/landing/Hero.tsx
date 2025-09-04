@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 export function Hero() {
   return (
     <section className="w-full py-12 md:py-16 lg:py-20 bg-secondary/30 text-center">
-      <div className="flex flex-col items-center justify-center space-y-6">
+      <div className="container px-4 md:px-6 flex flex-col items-center justify-center space-y-6">
         <div className="space-y-3 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-primary">
             Desafio
@@ -18,7 +18,7 @@ export function Hero() {
 
         <div className="w-full max-w-4xl">
           <Image
-            src="https://picsum.photos/800/450"
+            src="https://placehold.co/800x450"
             data-ai-hint="woman smiling happy"
             alt="Mulher feliz com os resultados do plano Cetox30"
             width={800}

@@ -1,6 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Users, ArrowRight } from "lucide-react";
 
 const reviews = [
   {
@@ -31,9 +33,15 @@ export function Reviews() {
   return (
     <section id="reviews" className="w-full py-12 md:py-16 lg:py-20 bg-secondary/30">
       <div className="container px-4 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">850+ Clientes Felizes</h2>
-          <p className="max-w-[600px] mx-auto text-muted-foreground md:text-xl/relaxed">Histórias Reais de Sucesso com o plano CETOX30</p>
+        <div className="text-center mb-12 flex flex-col items-center">
+            <Badge variant="secondary" className="mb-4 text-base py-2 px-4 rounded-full">
+                <Users className="h-5 w-5 mr-2" />
+                850+ Clientes Felizes
+            </Badge>
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl font-headline uppercase">Histórias Reais de Sucesso</h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+                Com o plano <span className="font-bold text-primary">CETOX30</span>
+            </p>
         </div>
         <div className="grid grid-cols-1 gap-6 px-4 md:grid-cols-2 lg:grid-cols-3 md:px-6">
           {reviews.map((review, i) => (
@@ -57,8 +65,11 @@ export function Reviews() {
           ))}
         </div>
         <div className="mt-12 text-center">
-            <Button asChild size="lg">
-                <a href="#comprar">QUERO JUNTAR-ME A ELES</a>
+            <Button asChild size="lg" className="h-12 px-8 font-bold text-lg rounded-full">
+                <a href="#comprar">
+                  QUERO JUNTAR-ME A ELES
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
             </Button>
         </div>
       </div>

@@ -7,15 +7,15 @@ export function Creator() {
   return (
     <section id="creator" className="w-full py-12 md:py-16 lg:py-20 bg-secondary/30">
       <div className="container px-4 md:px-6">
-        <div className="space-y-4 text-center">
+        <div className="space-y-6 text-center">
             <p className="text-lg md:text-xl text-foreground">Se respondeu <span className="font-bold text-primary">SIM</span> a qualquer uma destas perguntas...</p>
             <p className="text-2xl md:text-3xl font-bold font-headline">Então o CETOX30 foi feito especialmente para SI!</p>
         </div>
 
-        <div className="max-w-6xl mx-auto mt-12">
+        <div className="max-w-5xl mx-auto mt-12">
             <Card className="overflow-hidden shadow-xl">
-                <div className="grid md:grid-cols-2">
-                    <div className="p-6 md:p-8 flex flex-col justify-center">
+                <div className="flex flex-col md:flex-row">
+                    <div className="flex-1 p-6 md:p-8 flex flex-col justify-center text-left">
                         <CardHeader className="p-0">
                         <CardTitle className="text-2xl md:text-3xl font-bold tracking-tighter !leading-tight font-headline">
                             Olá, quero mostrar-lhe como consegui <span className="text-primary">perder mais de 20 quilos em apenas 2 meses</span>...
@@ -33,8 +33,8 @@ export function Creator() {
                             </p>
                         </CardContent>
                     </div>
-                    <div className="min-h-[300px] md:min-h-0">
-                        <Image
+                    <div className="relative md:w-2/5">
+                         <Image
                             src="https://placehold.co/600/800"
                             alt="Criador do Plano Cetox30"
                             width={600}

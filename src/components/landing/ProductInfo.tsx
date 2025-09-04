@@ -59,7 +59,7 @@ export function ProductInfo() {
           </div>
           <div className="mx-auto grid max-w-4xl items-start gap-6 sm:grid-cols-2 md:gap-8 mt-12">
             {frustrations.map((item, index) => (
-              <Card key={index} className="text-center bg-white shadow-md">
+              <Card key={index} className="flex flex-col text-center bg-white shadow-md">
                 <CardHeader className="items-center gap-4 p-6">
                   {item.icon}
                   <div className="space-y-1">
@@ -84,7 +84,7 @@ export function ProductInfo() {
           </div>
           <div className="mx-auto grid max-w-5xl items-start gap-6 sm:grid-cols-2 md:gap-8 lg:max-w-none lg:grid-cols-4 mt-12">
             {solutions.map((benefit, index) => (
-              <Card key={index} className="text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <Card key={index} className="flex flex-col text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 <CardHeader className="items-center gap-4 p-6">
                   {benefit.icon}
                   <div className="space-y-1">

@@ -26,7 +26,7 @@ export function CtaSection() {
 
             {/* Bônus */}
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
-                 <div className="space-y-4 md:order-last">
+                 <div className="space-y-4">
                     <h3 className="text-2xl font-bold">2 BÓNUS EXCLUSIVOS DE ACESSO IMEDIATO</h3>
                     <p className="text-muted-foreground">Garanta hoje o seu plano e receba gratuitamente os e-books <span className="font-semibold">SOBREMESAS CETOX30</span> e <span className="font-semibold">SEGREDOS PARA UMA DIETA DE SUCESSO</span>. Uma ajuda extra para resultados ainda melhores!</p>
                      <p className="text-muted-foreground font-semibold">Valor: <span className="line-through">39,99€</span></p>

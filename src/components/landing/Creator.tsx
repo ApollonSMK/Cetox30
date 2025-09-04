@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
@@ -20,8 +22,8 @@ export function Creator() {
         
         <div className="mt-12 max-w-4xl mx-auto">
           <Card className="overflow-hidden shadow-xl bg-background w-full">
-              <div className="md:grid md:grid-cols-2">
-                  <div className="relative aspect-[3/4] md:aspect-auto">
+              <div className="grid md:grid-cols-2">
+                  <div className="relative aspect-[3/4]">
                     <Image
                       src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYXJ8ZW58MHx8fHwxNzU2OTE5NDQxfDA&ixlib=rb-4.1.0&q=80&w=1080"
                       alt="Criador do Plano Cetox30"
@@ -53,7 +55,7 @@ export function Creator() {
         <div className="text-center mt-12">
           <Button asChild size="lg" className="h-14 px-8 font-bold text-xl animate-breathing-pulse w-full sm:w-auto">
             <a href="#comprar">
-              QUERO TRANSFORMAR O MEU CORPO
+              QUERO MUDAR AGORA
               <ArrowRight className="ml-2" />
             </a>
           </Button>

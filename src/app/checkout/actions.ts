@@ -32,7 +32,7 @@ export async function createCheckoutSession(
   }
 
   const origin = headers().get('origin');
-  const successUrl = `${origin}/?session_id={CHECKOUT_SESSION_ID}`;
+  const successUrl = `${origin}/success?session_id={CHECKOUT_SESSION_ID}`;
   const cancelUrl = `${origin}/checkout`;
 
   try {

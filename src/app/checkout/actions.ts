@@ -2,7 +2,6 @@
 
 import { z } from 'zod';
 import Stripe from 'stripe';
-import { headers } from 'next/headers';
 
 const checkoutSchema = z.object({
   name: z.string().min(2),
@@ -31,9 +30,14 @@ export async function createCheckoutSession(
     throw new Error('O ID do preço do Stripe não está configurado nas variáveis de ambiente.');
   }
 
-  const origin = headers().get('origin');
-  const successUrl = `${origin}/success?session_id={CHECKOUT_SESSION_ID}`;
-  const cancelUrl = `${origin}/checkout`;
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL;
+
+  if (!appUrl) {
+    throw new Error('A URL da aplicação (NEXT_PUBLIC_APP_URL) não está configurada nas variáveis de ambiente.');
+  }
+
+  const successUrl = `${appUrl}/success?session_id={CHECKOUT_SESSION_ID}`;
+  const cancelUrl = `${appUrl}/checkout`;
 
   try {
     const session = await stripe.checkout.sessions.create({

@@ -39,7 +39,7 @@ export async function createCheckoutSession(
   }
 
   const successUrl = `${appUrl}/success?session_id={CHECKOUT_SESSION_ID}`;
-  const cancelUrl = `${appUrl}`;
+  const cancelUrl = `${appUrl}/checkout`;
 
   try {
     const session = await stripe.checkout.sessions.create({

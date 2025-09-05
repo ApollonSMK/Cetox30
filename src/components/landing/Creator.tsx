@@ -54,7 +54,7 @@ export function Creator() {
 
         <div className="text-center mt-12">
           <Button asChild size="lg" className="h-14 px-8 font-bold text-xl animate-breathing-pulse w-full sm:w-auto">
-            <a href="#comprar">
+            <a href="/checkout">
               QUERO MUDAR AGORA
               <ArrowRight className="ml-2" />
             </a>

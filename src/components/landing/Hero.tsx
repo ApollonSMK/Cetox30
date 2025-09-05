@@ -41,7 +41,7 @@ export function Hero() {
           </div>
 
           <Button asChild size="lg" className="font-bold text-xl h-14 animate-breathing-pulse shadow-xl w-full sm:w-auto">
-            <a href="#comprar">Quero Emagrecer</a>
+            <a href="/checkout">Quero Emagrecer</a>
           </Button>
         </div>
       </div>

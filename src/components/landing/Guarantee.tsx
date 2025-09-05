@@ -21,7 +21,7 @@ export function Guarantee() {
                         </p>
                     </div>
                     <Button asChild size="lg">
-                        <a href="#comprar">
+                        <a href="/checkout">
                             QUERO MUDAR AGORA
                             <ArrowRight className="ml-2 h-5 w-5" />
                         </a>

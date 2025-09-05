@@ -1,8 +1,31 @@
-import Image from "next/image";
+"use client";
+
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Eye } from 'lucide-react';
 
 export function Hero() {
+  const [viewers, setViewers] = useState(0);
+
+  useEffect(() => {
+    // Set initial random viewers
+    const initialViewers = Math.floor(Math.random() * (350 - 250 + 1)) + 250;
+    setViewers(initialViewers);
+
+    // Function to update viewers count
+    const updateViewers = () => {
+      const change = Math.floor(Math.random() * 5) - 2; // -2, -1, 0, 1, 2
+      setViewers(prevViewers => Math.max(200, prevViewers + change)); // Keep it above a minimum
+    };
+
+    // Update every few seconds
+    const interval = setInterval(updateViewers, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
   return (
     <section className="w-full py-12 md:py-16 lg:py-20 bg-secondary/30 text-center">
       <div className="container px-4 md:px-6 flex flex-col items-center justify-center space-y-6">
@@ -16,15 +39,23 @@ export function Hero() {
           </h1>
         </div>
 
-        <div className="w-full max-w-4xl">
-          <Image
-            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkaWV0YXxlbnwwfHx8fDE3NTY5ODgwMzl8MA&ixlib=rb-4.1.0&q=80&w=1080"
-            data-ai-hint="woman smiling happy"
-            alt="Mulher feliz com os resultados do plano Cetox30"
-            width={800}
-            height={450}
-            className="mx-auto overflow-hidden rounded-xl object-cover shadow-2xl"
-          />
+        <div className="w-full max-w-4xl relative">
+          <div className="relative overflow-hidden rounded-xl shadow-2xl aspect-video">
+            <video
+              src="https://www.w3schools.com/html/mov_bbb.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute top-0 left-0 w-full h-full object-cover"
+            />
+             {viewers > 0 && (
+              <div className="absolute bottom-4 left-4 bg-black/50 text-white p-2 rounded-lg flex items-center gap-2 text-sm backdrop-blur-sm animate-fade-in-up">
+                <Eye className="h-5 w-5" />
+                <span>{viewers} pessoas estão a assistir a este vídeo</span>
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="flex flex-col items-center space-y-4 max-w-3xl mx-auto">

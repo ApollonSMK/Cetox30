@@ -12,6 +12,7 @@ import { FinalCta } from "@/components/landing/FinalCta";
 import { Guarantee } from "@/components/landing/Guarantee";
 import { Faq } from "@/components/landing/Faq";
 import { Footer } from "@/components/landing/Footer";
+import { SocialProof } from "@/components/landing/SocialProof";
 
 export default function Home() {
   return (
@@ -54,6 +55,7 @@ export default function Home() {
           </AnimateOnScroll>
         </main>
         <Footer />
+        <SocialProof />
       </div>
     </div>
   );

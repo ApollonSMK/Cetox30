@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { Clock } from "lucide-react";
 
 export function CtaSection() {
   return (
@@ -30,6 +32,10 @@ export function CtaSection() {
                     <h3 className="text-2xl font-bold">2 BÓNUS EXCLUSIVOS DE ACESSO IMEDIATO</h3>
                     <p className="text-muted-foreground">Garanta hoje o seu plano e receba gratuitamente os e-books <span className="font-semibold">SOBREMESAS CETOX30</span> e <span className="font-semibold">SEGREDOS PARA UMA DIETA DE SUCESSO</span>. Uma ajuda extra para resultados ainda melhores!</p>
                      <p className="text-muted-foreground font-semibold">Valor: <span className="line-through">39,99€</span></p>
+                    <Badge variant="destructive" className="text-base font-semibold p-3 animate-pulse">
+                        <Clock className="h-5 w-5 mr-2" />
+                        Estes bônus estão disponíveis apenas até o cronômetro zerar!
+                    </Badge>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-4 bg-white p-8 rounded-lg shadow-xl">
                     <Image src="https://picsum.photos/500/300?random=11" alt="Visualização dos e-books bónus em tablets" width={500} height={300} data-ai-hint="ebooks bonus" className="rounded-lg" />

@@ -42,17 +42,28 @@ export default function CheckoutPage() {
   async function onSubmit(values: z.infer<typeof checkoutSchema>) {
     setIsSubmitting(true);
     try {
-      const { url } = await createCheckoutSession(values);
-      if (url) {
-        router.push(url);
+      const result = await createCheckoutSession(values);
+      
+      if (result.error) {
+        toast({
+          title: "Erro",
+          description: result.error,
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      if (result.url) {
+        router.push(result.url);
       } else {
-        throw new Error("Não foi possível obter a URL de checkout.");
+        throw new Error("URL de checkout não recebida.");
       }
     } catch (error) {
-      console.error(error);
+      console.error("Erro inesperado no cliente:", error);
       toast({
-        title: "Erro",
-        description: "Não foi possível iniciar o checkout. Por favor, tente novamente.",
+        title: "Erro Inesperado",
+        description: "Não foi possível iniciar o checkout. Por favor, tente novamente mais tarde.",
         variant: "destructive",
       });
       setIsSubmitting(false);

@@ -27,17 +27,19 @@ export async function createCheckoutSession(
   const priceId = process.env.STRIPE_PRICE_ID;
   
   if (!priceId) {
-    throw new Error('O ID do preço do Stripe não está configurado nas variáveis de ambiente.');
+    console.error('Stripe Price ID not configured.');
+    return { error: 'A configuração de pagamento está incompleta.' };
   }
 
   const appUrl = process.env.NEXT_PUBLIC_APP_URL;
 
   if (!appUrl) {
-    throw new Error('A URL da aplicação (NEXT_PUBLIC_APP_URL) não está configurada nas variáveis de ambiente.');
+    console.error('NEXT_PUBLIC_APP_URL not configured.');
+    return { error: 'A configuração da aplicação está incompleta.' };
   }
 
   const successUrl = `${appUrl}/success?session_id={CHECKOUT_SESSION_ID}`;
-  const cancelUrl = `${appUrl}/checkout`;
+  const cancelUrl = `${appUrl}`;
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -54,9 +56,13 @@ export async function createCheckoutSession(
       cancel_url: cancelUrl,
     });
 
+    if (!session.url) {
+      return { error: 'Não foi possível criar a sessão de pagamento.' };
+    }
+
     return { url: session.url };
   } catch (error) {
     console.error('Erro ao criar sessão de checkout no Stripe:', error);
-    throw new Error('Não foi possível criar a sessão de pagamento.');
+    return { error: 'Não foi possível conectar ao nosso sistema de pagamento.' };
   }
 }

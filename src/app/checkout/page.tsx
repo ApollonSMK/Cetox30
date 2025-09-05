@@ -49,7 +49,16 @@ export default function CheckoutPage() {
     <div className="flex flex-col min-h-screen bg-secondary/30">
       <Header />
       <main className="flex-1 flex items-center justify-center p-4">
-        <Card className="max-w-md w-full shadow-lg animate-zoom-in">
+        <Card className="max-w-md w-full shadow-lg animate-zoom-in relative">
+          <Button 
+            variant="ghost"
+            size="icon"
+            className="absolute top-3 left-3 rounded-full" 
+            onClick={() => router.back()}
+          >
+            <ArrowLeft className="h-5 w-5" />
+            <span className="sr-only">Voltar</span>
+          </Button>
           <CardHeader>
             <CardTitle className="text-2xl font-bold font-headline text-center">Quase lá!</CardTitle>
             {!isSubmitting && (
@@ -113,14 +122,6 @@ export default function CheckoutPage() {
                     </Button>
                   </form>
                 </Form>
-                <Button 
-                  variant="outline" 
-                  className="w-full" 
-                  onClick={() => router.back()}
-                >
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Voltar
-                </Button>
               </div>
             )}
           </CardContent>

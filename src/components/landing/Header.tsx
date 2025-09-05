@@ -1,17 +1,25 @@
 import { Button } from "@/components/ui/button";
-import { Flame } from "lucide-react";
+import { ArrowRight, ShoppingCart } from "lucide-react";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-        <a className="flex items-center gap-2" href="/">
-          <Flame className="h-6 w-6 text-primary" />
-          <span className="text-xl font-extrabold tracking-tight">Plano Cetox30</span>
-        </a>
-        <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold shadow-md transition-transform hover:scale-105 px-2 text-sm sm:px-4 sm:text-base">
-          <a href="/checkout">Comprar Agora</a>
-        </Button>
+    <header className="sticky top-0 z-50 w-full bg-primary/90 text-primary-foreground backdrop-blur supports-[backdrop-filter]:bg-primary/60">
+      <div className="container flex h-14 items-center justify-center px-4 text-center md:px-6">
+        <div className="flex items-center gap-4">
+          <p className="hidden font-semibold sm:block">
+            Atenção: Esta oferta termina em breve!
+          </p>
+          <Button
+            asChild
+            className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-bold shadow-md transition-transform hover:scale-105"
+            size="sm"
+          >
+            <a href="/checkout">
+              Aproveitar Oferta
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+        </div>
       </div>
     </header>
   );

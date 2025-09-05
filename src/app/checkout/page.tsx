@@ -13,6 +13,8 @@ import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { createCheckoutSession } from "./actions";
+import { useToast } from "@/hooks/use-toast";
 
 const checkoutSchema = z.object({
   name: z.string().min(2, { message: "O nome deve ter pelo menos 2 caracteres." }),
@@ -22,6 +24,7 @@ const checkoutSchema = z.object({
 export default function CheckoutPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
+  const { toast } = useToast();
   
   const product = {
     name: "Plano de Emagrecimento Cetox30",
@@ -37,12 +40,23 @@ export default function CheckoutPage() {
   });
 
   async function onSubmit(values: z.infer<typeof checkoutSchema>) {
-    console.log("Form values:", values);
     setIsSubmitting(true);
-    // Aqui viria a lógica para redirecionar para o Stripe
-    // Por enquanto, apenas simulamos um carregamento
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log("Redirecting to Stripe...");
+    try {
+      const { url } = await createCheckoutSession(values);
+      if (url) {
+        router.push(url);
+      } else {
+        throw new Error("Não foi possível obter a URL de checkout.");
+      }
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Erro",
+        description: "Não foi possível iniciar o checkout. Por favor, tente novamente.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+    }
   }
 
   return (

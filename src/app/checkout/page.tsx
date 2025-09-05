@@ -42,7 +42,8 @@ export default function CheckoutPage() {
   async function onSubmit(values: z.infer<typeof checkoutSchema>) {
     setIsSubmitting(true);
     try {
-      const result = await createCheckoutSession(values);
+      const appUrl = window.location.origin;
+      const result = await createCheckoutSession(values, appUrl);
       
       if (result.error) {
         toast({

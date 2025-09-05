@@ -13,7 +13,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 });
 
 export async function createCheckoutSession(
-  values: z.infer<typeof checkoutSchema>
+  values: z.infer<typeof checkoutSchema>,
+  appUrl: string
 ) {
   const validatedFields = checkoutSchema.safeParse(values);
 
@@ -31,10 +32,7 @@ export async function createCheckoutSession(
     return { error: 'A configuração de pagamento está incompleta.' };
   }
 
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL;
-
   if (!appUrl) {
-    console.error('NEXT_PUBLIC_APP_URL not configured.');
     return { error: 'A configuração da aplicação está incompleta.' };
   }
 

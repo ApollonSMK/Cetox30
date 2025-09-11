@@ -15,7 +15,7 @@ export function Creator() {
               Se respondeu <span className="font-bold text-primary">SIM</span> a qualquer uma destas perguntas...
             </p>
             <h2 className="text-2xl md:text-3xl font-bold font-headline">
-              Então o CETOX30 foi feito especialmente para SI!
+              Então o <span className="text-primary">CETOX30</span> foi feito especialmente para SI!
             </h2>
           </div>
         </div>

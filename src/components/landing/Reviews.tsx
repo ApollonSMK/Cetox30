@@ -6,9 +6,9 @@ import { Users, ArrowRight, Star } from "lucide-react";
 
 const reviews = [
   {
-    name: "Bárbara",
+    name: "Sophie",
     location: "Portugal",
-    image: "https://picsum.photos/400/300?random=7",
+    image: "/images/sophie_portugal.webp",
     imageHint: "woman before after",
     text: "Após vários anos, tudo mudou quando conheci a dieta Cetox30. Perdi peso sem ir ao ginásio, mudei a minha rotina diária e conquistei o corpo que sonhava ter há anos.",
     rating: 5,
@@ -16,7 +16,7 @@ const reviews = [
   {
     name: "José",
     location: "Suíça",
-    image: "https://picsum.photos/400/300?random=8",
+    image: "/images/jose_suica.webp",
     imageHint: "man before after",
     text: "Há alguns meses tive um princípio de enfarte devido ao meu excesso de peso. O médico recomendou-me perder 35 quilos, o mais rápido possível. Encontrei a dieta Cetox30 e hoje estou 28 quilos mais leve.",
     rating: 5,
@@ -24,7 +24,7 @@ const reviews = [
   {
     name: "Stephanie",
     location: "Luxemburgo",
-    image: "https://picsum.photos/400/300?random=9",
+    image: "/images/stephanie_luxemburgo.webp",
     imageHint: "woman progress fit",
     text: "Sempre lutei contra a balança e não tive sucesso em nenhuma dieta. Com a dieta Cetox30, hoje estou dentro do meu peso e cheia de saúde. Foi a melhor decisão que tomei!",
     rating: 5,

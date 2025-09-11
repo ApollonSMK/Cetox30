@@ -49,7 +49,7 @@ export function Reviews() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
           {reviews.map((review, i) => (
             <Card key={i} className="flex flex-col bg-card shadow-lg rounded-xl overflow-hidden">
-              <div className="relative bg-black">
+              <div className="relative bg-primary/10">
                 <Image
                   src={review.image}
                   alt={`Depoimento de ${review.name}`}

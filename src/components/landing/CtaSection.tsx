@@ -17,7 +17,7 @@ export function CtaSection() {
             {/* Plano Principal */}
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
                 <div className="flex flex-col items-center justify-center gap-4 bg-white p-8 rounded-lg shadow-xl">
-                    <Image src="https://picsum.photos/500/500?random=10" alt="Capa do E-book CETOX30 e visualização em telemóvel e computador" width={500} height={500} data-ai-hint="ebook cover" className="rounded-lg" />
+                    <Image src="/images/tudo/1.png" alt="Capa do E-book CETOX30 e visualização em telemóvel e computador" width={500} height={500} className="rounded-lg" />
                 </div>
                 <div className="space-y-4">
                     <h3 className="text-2xl font-bold">PLANO DE EMAGRECIMENTO CETOX30</h3>
@@ -38,7 +38,7 @@ export function CtaSection() {
                     </Badge>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-4 bg-white p-8 rounded-lg shadow-xl">
-                    <Image src="https://picsum.photos/500/300?random=11" alt="Visualização dos e-books bónus em tablets" width={500} height={300} data-ai-hint="ebooks bonus" className="rounded-lg" />
+                    <Image src="/images/tudo/2.png" alt="Visualização dos e-books bónus em tablets" width={500} height={300} className="rounded-lg" />
                 </div>
             </div>
         </div>

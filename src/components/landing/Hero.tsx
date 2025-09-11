@@ -59,7 +59,7 @@ export function Hero() {
           <p className="text-muted-foreground md:text-xl">
             Descubra o sistema revolucionário que já ajudou mais de 1000 pessoas a alcançarem resultados extraordinários.
           </p>
-          <Badge variant="destructive" className="text-base font-semibold animate-pulse p-3 w-full whitespace-normal text-center">
+          <Badge variant="destructive" className="text-base font-semibold animate-pulse p-3 whitespace-normal text-center">
             🔥 OFERTA LIMITADA: Apenas 15 vagas restantes! Garanta já a sua!
           </Badge>
 

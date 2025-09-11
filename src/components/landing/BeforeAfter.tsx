@@ -5,15 +5,15 @@ export function BeforeAfter() {
   const transformations = [
     {
       image: "/images/plano1.png",
-      alt: "Pessoas a transformar o seu corpo com o plano Cetox30",
+      alt: "Transformação com o plano Cetox30 - Imagem 1",
     },
     {
       image: "/images/plano2.png",
-      alt: "Mulher a cozinhar uma refeição saudável do plano Cetox30",
+      alt: "Transformação com o plano Cetox30 - Imagem 2",
     },
     {
       image: "/images/plano3.png",
-      alt: "Homem feliz com os resultados do plano Cetox30",
+      alt: "Transformação com o plano Cetox30 - Imagem 3",
     },
   ];
 

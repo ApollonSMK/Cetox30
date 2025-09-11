@@ -42,7 +42,7 @@ export function Hero() {
         <div className="w-full max-w-4xl relative">
           <div className="relative overflow-hidden rounded-xl shadow-2xl aspect-video">
             <video
-              src="https://www.w3schools.com/html/mov_bbb.mp4"
+              src="https://videos.pexels.com/video-files/4434246/4434246-hd_1920_1080_25fps.mp4"
               autoPlay
               loop
               muted

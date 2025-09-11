@@ -41,14 +41,11 @@ export function Hero() {
 
         <div className="w-full max-w-4xl relative">
           <div className="relative overflow-hidden rounded-xl shadow-2xl aspect-video">
-            <video
-              src="https://videos.pexels.com/video-files/4434246/4434246-hd_1920_1080_25fps.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute top-0 left-0 w-full h-full object-cover"
-            />
+            <iframe
+              src="https://poetic-llama-eabca1.netlify.app/"
+              allow="autoplay; encrypted-media"
+              className="absolute top-0 left-0 w-full h-full border-0"
+            ></iframe>
              {viewers > 0 && (
               <div className="absolute bottom-4 left-4 bg-black/50 text-white p-2 rounded-lg flex items-center gap-2 text-sm backdrop-blur-sm animate-fade-in-up">
                 <Eye className="h-5 w-5" />

@@ -16,9 +16,6 @@ export function CtaSection() {
         <div className="space-y-16">
             {/* Plano Principal */}
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
-                <div className="flex justify-center">
-                  <Image src="/images/tudo/1.png" alt="Capa do E-book CETOX30 e visualização em telemóvel e computador" width={500} height={500} className="rounded-lg" />
-                </div>
                 <div className="space-y-4">
                     <h3 className="text-2xl lg:text-3xl font-headline font-bold text-primary">PLANO DE EMAGRECIMENTO CETOX30</h3>
                     <p className="text-muted-foreground text-lg">Cronograma completo de alimentação com receitas deliciosas para perder peso e dicas para um estilo de vida saudável e saboroso com poucos hidratos de carbono.</p>
@@ -27,11 +24,17 @@ export function CtaSection() {
                       <Badge variant="secondary" className="text-base line-through">67,98€</Badge>
                     </div>
                 </div>
+                <div className="flex justify-center">
+                  <Image src="/images/tudo/1.png" alt="Capa do E-book CETOX30 e visualização em telemóvel e computador" width={500} height={500} className="rounded-lg" />
+                </div>
             </div>
 
             {/* Bônus */}
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
-                 <div className="space-y-4 md:order-last">
+                <div className="flex justify-center">
+                    <Image src="/images/tudo/2.png" alt="Visualização dos e-books bónus em tablets" width={500} height={300} className="rounded-lg" />
+                </div>
+                 <div className="space-y-4">
                     <h3 className="text-2xl lg:text-3xl font-headline font-bold text-primary">2 BÓNUS EXCLUSIVOS DE ACESSO IMEDIATO</h3>
                     <p className="text-muted-foreground text-lg">Garanta hoje o seu plano e receba gratuitamente os e-books <span className="font-semibold text-foreground">SOBREMESAS CETOX30</span> e <span className="font-semibold text-foreground">SEGREDOS PARA UMA DIETA DE SUCESSO</span>. Uma ajuda extra para resultados ainda melhores!</p>
                      <div className="flex items-center gap-2">
@@ -42,9 +45,6 @@ export function CtaSection() {
                         <Clock className="h-5 w-5 mr-2" />
                         Estes bônus estão disponíveis apenas até o cronômetro zerar!
                     </Badge>
-                </div>
-                <div className="flex justify-center md:order-first">
-                    <Image src="/images/tudo/2.png" alt="Visualização dos e-books bónus em tablets" width={500} height={300} className="rounded-lg" />
                 </div>
             </div>
         </div>

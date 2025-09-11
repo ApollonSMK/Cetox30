@@ -49,14 +49,14 @@ export function Reviews() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
           {reviews.map((review, i) => (
             <Card key={i} className="flex flex-col bg-card shadow-lg rounded-xl overflow-hidden">
-              <div className="relative">
+              <div className="relative bg-black">
                 <Image
                   src={review.image}
                   alt={`Depoimento de ${review.name}`}
                   width={400}
                   height={300}
                   data-ai-hint={review.imageHint}
-                  className="w-full object-cover object-center aspect-[4/3]"
+                  className="w-full object-contain aspect-[4/3]"
                 />
                 <div className="absolute bottom-0 left-0 bg-black/50 text-white p-4 rounded-tr-xl">
                   <p className="font-bold text-lg">{review.name}</p>

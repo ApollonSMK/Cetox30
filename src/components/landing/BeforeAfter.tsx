@@ -4,15 +4,15 @@ import { Card, CardContent } from "@/components/ui/card";
 export function BeforeAfter() {
   const transformations = [
     {
-      image: "/images/plano1.png",
+      image: "/images/sophie_portugal.webp",
       alt: "Transformação com o plano Cetox30 - Imagem 1",
     },
     {
-      image: "/images/plano2.png",
+      image: "/images/jose_suica.webp",
       alt: "Transformação com o plano Cetox30 - Imagem 2",
     },
     {
-      image: "/images/plano3.png",
+      image: "/images/stephanie_luxemburgo.webp",
       alt: "Transformação com o plano Cetox30 - Imagem 3",
     },
   ];

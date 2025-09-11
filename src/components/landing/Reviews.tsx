@@ -56,7 +56,7 @@ export function Reviews() {
                   width={400}
                   height={300}
                   data-ai-hint={review.imageHint}
-                  className="w-full object-cover aspect-[4/3]"
+                  className="w-full object-cover object-center aspect-[4/3]"
                 />
                 <div className="absolute bottom-0 left-0 bg-black/50 text-white p-4 rounded-tr-xl">
                   <p className="font-bold text-lg">{review.name}</p>

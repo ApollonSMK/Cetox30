@@ -44,11 +44,11 @@ export default function Home() {
           <AnimateOnScroll animation="fade-in-up">
             <CtaSection />
           </AnimateOnScroll>
-          <AnimateOnScroll animation="fade-in-up">
-            <Guarantee />
-          </AnimateOnScroll>
           <AnimateOnScroll animation="zoom-in" threshold={0.1}>
             <FinalCta />
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fade-in-up">
+            <Guarantee />
           </AnimateOnScroll>
           <AnimateOnScroll animation="fade-in-up" threshold={0.1}>
             <Faq />

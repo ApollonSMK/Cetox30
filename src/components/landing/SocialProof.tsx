@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Card } from '@/components/ui/card';
 import { ShoppingBag, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useSlots } from '@/contexts/SlotsContext';
 
 const names = [
     "Ana Silva", "João Santos", "Maria Oliveira", "Pedro Costa", "Sofia Pereira",
@@ -57,12 +58,14 @@ function TimeAgo({ time }: { time: number }) {
 export function SocialProof() {
     const [isVisible, setIsVisible] = useState(false);
     const [currentProof, setCurrentProof] = useState<Proof | null>(null);
+    const { decrementSlots } = useSlots();
 
     const showRandomProof = () => {
         const randomName = names[Math.floor(Math.random() * names.length)];
         const randomLocation = locations[Math.floor(Math.random() * locations.length)];
         setCurrentProof({ name: randomName, location: randomLocation, time: Date.now() });
         setIsVisible(true);
+        decrementSlots();
 
         setTimeout(() => {
             setIsVisible(false);
@@ -80,6 +83,7 @@ export function SocialProof() {
             clearTimeout(initialTimeout);
             clearInterval(interval);
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

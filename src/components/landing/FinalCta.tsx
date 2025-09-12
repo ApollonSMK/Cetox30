@@ -3,8 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
+import { useSlots } from '@/contexts/SlotsContext';
 
 export function FinalCta() {
+    const { slots } = useSlots();
     const [timeLeft, setTimeLeft] = useState<{ hours?: number; minutes?: number; seconds?: number } | null>(null);
 
     useEffect(() => {
@@ -66,7 +68,7 @@ export function FinalCta() {
                     </div>
 
                     <p className="text-center text-muted-foreground">
-                        Apenas <span className="font-bold text-destructive">15 vagas</span> restantes com desconto especial!
+                        Apenas <span className="font-bold text-destructive">{slots} vagas</span> restantes com desconto especial!
                     </p>
 
                     <div className="bg-primary/10 rounded-lg p-6 text-center space-y-4">

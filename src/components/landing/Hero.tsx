@@ -4,9 +4,11 @@ import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Eye } from 'lucide-react';
+import { useSlots } from '@/contexts/SlotsContext';
 
 export function Hero() {
   const [viewers, setViewers] = useState(0);
+  const { slots } = useSlots();
 
   useEffect(() => {
     // Set initial random viewers
@@ -60,7 +62,7 @@ export function Hero() {
             Descubra o sistema revolucionário que já ajudou mais de 1000 pessoas a alcançarem resultados extraordinários.
           </p>
           <Badge variant="destructive" className="text-base font-semibold animate-pulse p-3 whitespace-normal text-center">
-            🔥 OFERTA LIMITADA: Apenas 15 vagas restantes! Garanta já a sua!
+            🔥 OFERTA LIMITADA: Apenas {slots} vagas restantes! Garanta já a sua!
           </Badge>
 
           <div className="flex flex-col sm:flex-row items-center gap-4">

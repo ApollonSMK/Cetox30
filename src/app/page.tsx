@@ -13,50 +13,53 @@ import { Guarantee } from "@/components/landing/Guarantee";
 import { Faq } from "@/components/landing/Faq";
 import { Footer } from "@/components/landing/Footer";
 import { SocialProof } from "@/components/landing/SocialProof";
+import { SlotsProvider } from "@/contexts/SlotsContext";
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-screen-2xl">
-      <div className="flex flex-col min-h-[100dvh] bg-background">
-        <Header />
-        <main className="flex-1 overflow-hidden">
-          <AnimateOnScroll animation="fade-in-down" delay={200}>
-            <Hero />
-          </AnimateOnScroll>
-          <AnimateOnScroll animation="fade-in-up">
-            <Frustrations />
-          </AnimateOnScroll>
-          <AnimateOnScroll animation="zoom-in" threshold={0.3}>
-            <Creator />
-          </AnimateOnScroll>
-          <AnimateOnScroll animation="fade-in-up">
-            <Benefits />
-          </AnimateOnScroll>
-          <AnimateOnScroll animation="fade-in-up">
-            <BeforeAfter />
-          </AnimateOnScroll>
-          <AnimateOnScroll animation="fade-in-up">
-            <ProductInfo />
-          </AnimateOnScroll>
-          <AnimateOnScroll animation="zoom-in" threshold={0.1}>
-            <Reviews />
-          </AnimateOnScroll>
-          <AnimateOnScroll animation="fade-in-up">
-            <CtaSection />
-          </AnimateOnScroll>
-          <AnimateOnScroll animation="zoom-in" threshold={0.1}>
-            <FinalCta />
-          </AnimateOnScroll>
-          <AnimateOnScroll animation="fade-in-up">
-            <Guarantee />
-          </AnimateOnScroll>
-          <AnimateOnScroll animation="fade-in-up" threshold={0.1}>
-            <Faq />
-          </AnimateOnScroll>
-        </main>
-        <Footer />
-        <SocialProof />
+    <SlotsProvider initialSlots={35}>
+      <div className="mx-auto max-w-screen-2xl">
+        <div className="flex flex-col min-h-[100dvh] bg-background">
+          <Header />
+          <main className="flex-1 overflow-hidden">
+            <AnimateOnScroll animation="fade-in-down" delay={200}>
+              <Hero />
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-in-up">
+              <Frustrations />
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="zoom-in" threshold={0.3}>
+              <Creator />
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-in-up">
+              <Benefits />
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-in-up">
+              <BeforeAfter />
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-in-up">
+              <ProductInfo />
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="zoom-in" threshold={0.1}>
+              <Reviews />
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-in-up">
+              <CtaSection />
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="zoom-in" threshold={0.1}>
+              <FinalCta />
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-in-up">
+              <Guarantee />
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-in-up" threshold={0.1}>
+              <Faq />
+            </AnimateOnScroll>
+          </main>
+          <Footer />
+          <SocialProof />
+        </div>
       </div>
-    </div>
+    </SlotsProvider>
   );
 }

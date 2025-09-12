@@ -8,7 +8,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
     apiVersion: '2024-06-20',
 });
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET as string;
 
 export async function POST(req: NextRequest) {
@@ -29,14 +28,13 @@ export async function POST(req: NextRequest) {
     
     if (session.payment_status === 'paid') {
       const customerEmail = session.customer_details?.email;
-      // Fallback to metadata if customer_details is not populated
       const customerName = session.customer_details?.name || session.metadata?.customer_name || '';
 
       if (!customerEmail) {
         console.error('Email do cliente não encontrado na sessão de checkout.');
         return NextResponse.json({ error: 'Email do cliente não encontrado.' }, { status: 400 });
       }
-
+      
       const downloadUrls = {
         plano: process.env.DOWNLOAD_URL_PLANO as string,
         sobremesas: process.env.DOWNLOAD_URL_SOBREMESAS as string,
@@ -49,6 +47,8 @@ export async function POST(req: NextRequest) {
       }
 
       try {
+        const resend = new Resend(process.env.RESEND_API_KEY);
+        
         const { data, error } = await resend.emails.send({
           from: 'Plano Cetox30 <nao-responda@planocetox.com>',
           to: customerEmail,
@@ -72,8 +72,6 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: 'Erro ao enviar e-mail.' }, { status: 500 });
       }
     }
-  } else {
-    console.log(`Evento não manipulado: ${event.type}`);
   }
 
   return NextResponse.json({ received: true }, { status: 200 });

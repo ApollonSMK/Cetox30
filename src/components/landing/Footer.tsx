@@ -17,7 +17,7 @@ export function Footer() {
             <div className="flex gap-4">
                 <Link href="/termos" className="hover:underline text-background/80 hover:text-background">Termos de Utilização</Link>
                 <Link href="/privacidade" className="hover:underline text-background/80 hover:text-background">Política de Privacidade</Link>
-                <a href="#" className="hover:underline text-background/80 hover:text-background">Política de Reembolso</a>
+                <Link href="/reembolso" className="hover:underline text-background/80 hover:text-background">Política de Reembolso</Link>
             </div>
         </div>
       </div>

@@ -115,24 +115,3 @@ import {
   
   export default WelcomeEmail;
   
-  const button = {
-    padding: '14px 24px',
-    borderRadius: '8px',
-    fontWeight: 'bold',
-    textAlign: 'center' as const,
-    display: 'block',
-    width: '100%',
-    marginBottom: '10px',
-  };
-
-  const mainButton = {
-      ...button,
-      backgroundColor: '#E63946',
-      color: '#ffffff',
-  }
-
-  const bonusButton = {
-      ...button,
-      backgroundColor: '#A8DADC',
-      color: '#1D3557',
-  }

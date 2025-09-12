@@ -1,4 +1,5 @@
 import { Flame } from "lucide-react";
+import Link from "next/link";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,7 +15,7 @@ export function Footer() {
                 <p>Copyright {currentYear} – Plano Cetox ® | Todos os direitos reservados.</p>
             </div>
             <div className="flex gap-4">
-                <a href="#" className="hover:underline text-background/80 hover:text-background">Termos de Utilização</a>
+                <Link href="/termos" className="hover:underline text-background/80 hover:text-background">Termos de Utilização</Link>
                 <a href="#" className="hover:underline text-background/80 hover:text-background">Política de Privacidade</a>
                 <a href="#" className="hover:underline text-background/80 hover:text-background">Política de Reembolso</a>
             </div>

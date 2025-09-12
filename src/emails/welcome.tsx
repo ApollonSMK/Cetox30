@@ -23,8 +23,6 @@ import {
     };
   }
   
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
-  
   export const WelcomeEmail = ({ customerName, downloadUrls }: WelcomeEmailProps) => (
     <Html>
       <Head />
@@ -48,14 +46,6 @@ import {
         <Body className="bg-background font-sans">
           <Container className="mx-auto my-10 max-w-2xl rounded-lg border border-solid border-gray-200 bg-white p-8 shadow-lg">
             <Section className="text-center">
-              {/* O logo pode ser uma URL pública de um bucket */}
-              {/* <Img
-                src={`${baseUrl}/static/logo.png`}
-                width="80"
-                height="80"
-                alt="Plano Cetox30 Logo"
-                className="mx-auto"
-              /> */}
               <Heading className="mt-6 text-3xl font-bold text-foreground">
                 Bem-vindo(a) ao <span className="text-primary">Plano Cetox30</span>!
               </Heading>
@@ -82,14 +72,14 @@ import {
                 </Button>
                 <Button
                     href={downloadUrls.sobremesas}
-                    className="w-full rounded-md bg-secondary text-secondary-foreground px-6 py-3.5 text-base font-bold shadow-sm"
+                    className="w-full rounded-md px-6 py-3.5 text-base font-bold shadow-sm"
                      style={{ backgroundColor: '#A8DADC' , color: '#1D3557'}}
                 >
                     Bônus: Sobremesas Cetox30
                 </Button>
                 <Button
                     href={downloadUrls.segredos}
-                    className="w-full rounded-md bg-secondary text-secondary-foreground px-6 py-3.5 text-base font-bold shadow-sm"
+                    className="w-full rounded-md px-6 py-3.5 text-base font-bold shadow-sm"
                     style={{ backgroundColor: '#A8DADC', color: '#1D3557' }}
                 >
                     Bônus: Segredos para o Sucesso

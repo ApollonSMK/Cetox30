@@ -20,15 +20,13 @@ export async function POST(req: NextRequest) {
   try {
     event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
   } catch (err: any) {
-    console.error(`❌ Error message: ${err.message}`);
+    console.error(`❌ Erro na verificação do webhook: ${err.message}`);
     return NextResponse.json({ error: `Webhook Error: ${err.message}` }, { status: 400 });
   }
 
-  // Apenas manipular o evento 'checkout.session.completed'
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object as Stripe.Checkout.Session;
     
-    // Verificar se o pagamento foi bem-sucedido
     if (session.payment_status === 'paid') {
       const customerEmail = session.customer_details?.email;
       const customerName = session.customer_details?.name || '';
@@ -45,13 +43,12 @@ export async function POST(req: NextRequest) {
       };
 
       if (!downloadUrls.plano || !downloadUrls.sobremesas || !downloadUrls.segredos) {
-        console.error('Uma ou mais URLs de download não estão configuradas.');
-        // Considerar enviar um e-mail de erro ou notificação aqui
+        console.error('Uma ou mais URLs de download não estão configuradas no .env.');
         return NextResponse.json({ error: 'Configuração de URL de download incompleta.' }, { status: 500 });
       }
 
       try {
-        await resend.emails.send({
+        const data = await resend.emails.send({
           from: 'Plano Cetox30 <nao-responda@planocetox.com>',
           to: customerEmail,
           subject: 'Bem-vindo(a) ao Plano Cetox30! Seus links para download estão aqui.',
@@ -61,14 +58,16 @@ export async function POST(req: NextRequest) {
           }),
         });
 
-        console.log(`E-mail de boas-vindas enviado para ${customerEmail}`);
+        console.log(`E-mail de boas-vindas enviado para ${customerEmail}`, data);
+        return NextResponse.json({ ok: true });
+
       } catch (error) {
         console.error('Erro ao enviar e-mail de boas-vindas:', error);
         return NextResponse.json({ error: 'Erro ao enviar e-mail.' }, { status: 500 });
       }
     }
   } else {
-    console.log(`Evento não manipulado recebido: ${event.type}`);
+    console.log(`Evento não manipulado: ${event.type}`);
   }
 
   return NextResponse.json({ received: true }, { status: 200 });

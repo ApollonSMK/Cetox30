@@ -24,9 +24,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: `Webhook Error: ${err.message}` }, { status: 400 });
   }
 
+  // Apenas manipular o evento 'checkout.session.completed'
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object as Stripe.Checkout.Session;
     
+    // Verificar se o pagamento foi bem-sucedido
     if (session.payment_status === 'paid') {
       const customerEmail = session.customer_details?.email;
       const customerName = session.customer_details?.name || '';
@@ -44,8 +46,8 @@ export async function POST(req: NextRequest) {
 
       if (!downloadUrls.plano || !downloadUrls.sobremesas || !downloadUrls.segredos) {
         console.error('Uma ou mais URLs de download não estão configuradas.');
-        // Ainda assim, envie o e-mail, mas talvez sem os links ou com uma mensagem de erro
-        // Por agora, vamos apenas logar o erro e continuar
+        // Considerar enviar um e-mail de erro ou notificação aqui
+        return NextResponse.json({ error: 'Configuração de URL de download incompleta.' }, { status: 500 });
       }
 
       try {
@@ -65,6 +67,8 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: 'Erro ao enviar e-mail.' }, { status: 500 });
       }
     }
+  } else {
+    console.log(`Evento não manipulado recebido: ${event.type}`);
   }
 
   return NextResponse.json({ received: true }, { status: 200 });

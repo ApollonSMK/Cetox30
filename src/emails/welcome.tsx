@@ -79,7 +79,7 @@ export const WelcomeEmail = ({ customerName, downloadUrls }: WelcomeEmailProps) 
             </Heading>
             <Button
               href={downloadUrls.plano}
-              className="mt-4 w-full rounded-md bg-accent px-6 py-3.5 text-base font-bold text-white shadow-md"
+              className="mt-4 rounded-md bg-accent px-6 py-3.5 text-base font-bold text-white shadow-md"
             >
               Descarregar o Plano
             </Button>
@@ -94,7 +94,7 @@ export const WelcomeEmail = ({ customerName, downloadUrls }: WelcomeEmailProps) 
             </Heading>
             <Button
               href={downloadUrls.segredos}
-              className="mt-4 w-full rounded-md bg-secondary px-6 py-3.5 text-base font-bold text-white shadow-md"
+              className="mt-4 rounded-md bg-secondary px-6 py-3.5 text-base font-bold text-white shadow-md"
             >
               Ver Segredos
             </Button>
@@ -109,7 +109,7 @@ export const WelcomeEmail = ({ customerName, downloadUrls }: WelcomeEmailProps) 
             </Heading>
             <Button
               href={downloadUrls.sobremesas}
-              className="mt-4 w-full rounded-md bg-primary px-6 py-3.5 text-base font-bold text-white shadow-md"
+              className="mt-4 rounded-md bg-primary px-6 py-3.5 text-base font-bold text-white shadow-md"
             >
               Ver Receitas
             </Button>

@@ -29,7 +29,8 @@ export async function POST(req: NextRequest) {
     
     if (session.payment_status === 'paid') {
       const customerEmail = session.customer_details?.email;
-      const customerName = session.customer_details?.name || '';
+      // Fallback to metadata if customer_details is not populated
+      const customerName = session.customer_details?.name || session.metadata?.customer_name || '';
 
       if (!customerEmail) {
         console.error('Email do cliente não encontrado na sessão de checkout.');
@@ -48,7 +49,7 @@ export async function POST(req: NextRequest) {
       }
 
       try {
-        const data = await resend.emails.send({
+        const { data, error } = await resend.emails.send({
           from: 'Plano Cetox30 <nao-responda@planocetox.com>',
           to: customerEmail,
           subject: 'Bem-vindo(a) ao Plano Cetox30! Seus links para download estão aqui.',
@@ -58,11 +59,16 @@ export async function POST(req: NextRequest) {
           }),
         });
 
+        if (error) {
+          console.error('Erro ao enviar e-mail de boas-vindas com Resend:', error);
+          return NextResponse.json({ error: 'Erro ao enviar e-mail.' }, { status: 500 });
+        }
+
         console.log(`E-mail de boas-vindas enviado para ${customerEmail}`, data);
         return NextResponse.json({ ok: true });
 
       } catch (error) {
-        console.error('Erro ao enviar e-mail de boas-vindas:', error);
+        console.error('Erro inesperado ao enviar e-mail:', error);
         return NextResponse.json({ error: 'Erro ao enviar e-mail.' }, { status: 500 });
       }
     }

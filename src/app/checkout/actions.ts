@@ -24,7 +24,7 @@ export async function createCheckoutSession(
     };
   }
 
-  const { email } = validatedFields.data;
+  const { name, email } = validatedFields.data;
   const priceId = process.env.STRIPE_PRICE_ID;
   
   if (!priceId) {
@@ -49,7 +49,11 @@ export async function createCheckoutSession(
         },
       ],
       mode: 'payment',
+      customer_creation: 'if_required',
       customer_email: email,
+      metadata: {
+        customer_name: name,
+      },
       success_url: successUrl,
       cancel_url: cancelUrl,
     });

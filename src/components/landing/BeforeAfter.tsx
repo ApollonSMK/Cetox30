@@ -32,9 +32,9 @@ export function BeforeAfter() {
                     <Image 
                       src={t.image} 
                       alt={t.alt} 
-                      width={300} 
+                      width={400} 
                       height={400} 
-                      className="aspect-[3/4] object-cover w-full" 
+                      className="aspect-square object-cover w-full" 
                     />
                 </CardContent>
               </Card>

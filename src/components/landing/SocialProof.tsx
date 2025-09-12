@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { ShoppingBag, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Badge } from '@/components/ui/badge';
 
 const names = [
     "Ana Silva", "João Santos", "Maria Oliveira", "Pedro Costa", "Sofia Pereira",
@@ -12,7 +11,8 @@ const names = [
     "Catarina Gomes", "André Carvalho", "Inês Fernandes", "Ricardo Pinto", "Laura Ramos",
     "Francisco Jesus", "Bárbara Moreira", "Tiago Correia", "Daniela Nunes", "Rui Mendes",
     "Julia Fogaça", "Lucas Martins", "Gabriela Lima", "Matheus Almeida", "Isabela Ribeiro",
-    "Enzo Pereira", "Manuela Azevedo", "Felipe Barbosa", "Yasmin Rocha", "Arthur Castro"
+    "Enzo Pereira", "Manuela Azevedo", "Felipe Barbosa", "Yasmin Rocha", "Arthur Castro",
+    "Clara Moraes", "Guilherme Dias", "Lívia Bernardes", "Rafael Teixeira", "Helena Faria"
 ];
 const locations = [
     { city: "Lisboa", country: "Portugal", flag: "🇵🇹" },
@@ -53,7 +53,6 @@ function TimeAgo({ time }: { time: number }) {
     
     return <span>há {Math.floor(secondsAgo / 60)} minutos</span>;
 }
-
 
 export function SocialProof() {
     const [isVisible, setIsVisible] = useState(false);

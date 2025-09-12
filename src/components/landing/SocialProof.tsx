@@ -1,36 +1,42 @@
 "use client";
 
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Card } from '@/components/ui/card';
 import { ShoppingBag, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useSlots } from '@/contexts/SlotsContext';
 
 const names = [
-    "Ana Silva", "João Santos", "Maria Oliveira", "Pedro Costa", "Sofia Pereira",
-    "Carlos Martins", "Mariana Rodrigues", "José Ferreira", "Beatriz Almeida", "Miguel Sousa",
-    "Catarina Gomes", "André Carvalho", "Inês Fernandes", "Ricardo Pinto", "Laura Ramos",
-    "Francisco Jesus", "Bárbara Moreira", "Tiago Correia", "Daniela Nunes", "Rui Mendes",
-    "Julia Fogaça", "Lucas Martins", "Gabriela Lima", "Matheus Almeida", "Isabela Ribeiro",
-    "Enzo Pereira", "Manuela Azevedo", "Felipe Barbosa", "Yasmin Rocha", "Arthur Castro",
-    "Clara Moraes", "Guilherme Dias", "Lívia Bernardes", "Rafael Teixeira", "Helena Faria"
+    "Ana Silva", "João Santos", "Maria Oliveira", "Pedro Costa", "Sofia Pereira", "Carlos Martins", "Mariana Rodrigues", "José Ferreira", "Beatriz Almeida", "Miguel Sousa",
+    "Catarina Gomes", "André Carvalho", "Inês Fernandes", "Ricardo Pinto", "Laura Ramos", "Francisco Jesus", "Bárbara Moreira", "Tiago Correia", "Daniela Nunes", "Rui Mendes",
+    "Léa Schmitt", "Paul Muller", "Sophie Weber", "Felix Becker", "Marie Hoffmann", "Lars Fischer", "Julia Schneider", "Tom Klein", "Emma Wagner", "Ben Bauer",
+    "Lucía García", "Mateo Rodríguez", "Sofía Martínez", "Hugo López", "Martina Sánchez", "Daniel Pérez", "Paula Gómez", "Alejandro Martín", "Valeria Ruiz", "Pablo Díaz",
+    "Chloé Dubois", "Louis Lambert", "Manon Bernard", "Gabriel Thomas", "Camille Petit", "Jules Durand", "Alice Moreau", "Adam Simon", "Louise Michel", "Hugo Leroy",
+    "Giulia Rossi", "Alessandro Russo", "Sofia Ferrari", "Lorenzo Esposito", "Alice Bianchi", "Matteo Romano", "Beatrice Colombo", "Leonardo Ricci", "Ginevra Marino", "Tommaso Greco"
 ];
+
 const locations = [
-    { city: "Lisboa", country: "Portugal", flag: "🇵🇹" },
-    { city: "Porto", country: "Portugal", flag: "🇵🇹" },
-    { city: "Sintra", country: "Portugal", flag: "🇵🇹" },
-    { city: "Faro", country: "Portugal", flag: "🇵🇹" },
-    { city: "Braga", country: "Portugal", flag: "🇵🇹" },
-    { city: "Coimbra", country: "Portugal", flag: "🇵🇹" },
-    { city: "Genebra", country: "Suíça", flag: "🇨🇭" },
-    { city: "Zurique", country: "Suíça", flag: "🇨🇭" },
-    { city: "Luxemburgo", country: "Luxemburgo", flag: "🇱🇺" },
-    { city: "Funchal", country: "Portugal", flag: "🇵🇹" },
-    { city: "Paris", country: "França", flag: "🇫🇷" },
-    { city: "São Paulo", country: "Brasil", flag: "🇧🇷" },
-    { city: "Rio de Janeiro", country: "Brasil", flag: "🇧🇷" },
-    { city: "Londres", country: "Reino Unido", flag: "🇬🇧" }
+    { city: "Lisboa", country: "Portugal", flag: "🇵🇹" }, { city: "Porto", country: "Portugal", flag: "🇵🇹" }, { city: "Faro", country: "Portugal", flag: "🇵🇹" },
+    { city: "Braga", country: "Portugal", flag: "🇵🇹" }, { city: "Coimbra", country: "Portugal", flag: "🇵🇹" },
+    { city: "Luxemburgo", country: "Luxemburgo", flag: "🇱🇺" }, { city: "Esch-sur-Alzette", country: "Luxemburgo", flag: "🇱🇺" },
+    { city: "Munique", country: "Alemanha", flag: "🇩🇪" }, { city: "Berlim", country: "Alemanha", flag: "🇩🇪" }, { city: "Hamburgo", country: "Alemanha", flag: "🇩🇪" },
+    { city: "Bruxelas", country: "Bélgica", flag: "🇧🇪" }, { city: "Antuérpia", country: "Bélgica", flag: "🇧🇪" },
+    { city: "Madrid", country: "Espanha", flag: "🇪🇸" }, { city: "Barcelona", country: "Espanha", flag: "🇪🇸" }, { city: "Valência", country: "Espanha", flag: "🇪🇸" },
+    { city: "Genebra", country: "Suíça", flag: "🇨🇭" }, { city: "Zurique", country: "Suíça", flag: "🇨🇭" },
+    { city: "Paris", country: "França", flag: "🇫🇷" }, { city: "Marselha", country: "França", flag: "🇫🇷" },
 ];
+
+
+// Helper to shuffle an array
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
 
 type Proof = {
     name: string;
@@ -59,18 +65,37 @@ export function SocialProof() {
     const [isVisible, setIsVisible] = useState(false);
     const [currentProof, setCurrentProof] = useState<Proof | null>(null);
     const { decrementSlots } = useSlots();
+    
+    // State to hold the shuffled names and the current index
+    const [shuffledNames, setShuffledNames] = useState<string[]>([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-    const showRandomProof = () => {
-        const randomName = names[Math.floor(Math.random() * names.length)];
+    // Shuffle names only once on component mount
+    useEffect(() => {
+        setShuffledNames(shuffleArray(names));
+    }, []);
+
+    const showRandomProof = useCallback(() => {
+        if (shuffledNames.length === 0) return;
+
+        // Reset index if we've used all names
+        const index = currentIndex >= shuffledNames.length ? 0 : currentIndex;
+
+        const randomName = shuffledNames[index];
         const randomLocation = locations[Math.floor(Math.random() * locations.length)];
+        
         setCurrentProof({ name: randomName, location: randomLocation, time: Date.now() });
         setIsVisible(true);
         decrementSlots();
 
+        // Increment index for the next use
+        setCurrentIndex(index + 1);
+
         setTimeout(() => {
             setIsVisible(false);
         }, 6000); // Hide after 6 seconds
-    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [shuffledNames, currentIndex, decrementSlots]);
 
     useEffect(() => {
         const initialTimeout = setTimeout(showRandomProof, 7000); 
@@ -83,8 +108,7 @@ export function SocialProof() {
             clearTimeout(initialTimeout);
             clearInterval(interval);
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [showRandomProof]);
 
     return (
         <div 

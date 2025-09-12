@@ -6,7 +6,6 @@ import {
   Heading,
   Hr,
   Html,
-  Img,
   Preview,
   Section,
   Text,
@@ -23,8 +22,6 @@ interface WelcomeEmailProps {
     segredos: string;
   };
 }
-
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://planocetox.com';
 
 export const WelcomeEmail = ({ customerName, downloadUrls }: WelcomeEmailProps) => (
   <Html>
@@ -79,6 +76,7 @@ export const WelcomeEmail = ({ customerName, downloadUrls }: WelcomeEmailProps) 
             </Heading>
             <Button
               href={downloadUrls.plano}
+              style={{ width: '100%', display: 'block' }}
               className="mt-4 rounded-md bg-accent px-6 py-3.5 text-base font-bold text-white shadow-md"
             >
               Descarregar o Plano
@@ -94,6 +92,7 @@ export const WelcomeEmail = ({ customerName, downloadUrls }: WelcomeEmailProps) 
             </Heading>
             <Button
               href={downloadUrls.segredos}
+              style={{ width: '100%', display: 'block' }}
               className="mt-4 rounded-md bg-secondary px-6 py-3.5 text-base font-bold text-white shadow-md"
             >
               Ver Segredos
@@ -109,6 +108,7 @@ export const WelcomeEmail = ({ customerName, downloadUrls }: WelcomeEmailProps) 
             </Heading>
             <Button
               href={downloadUrls.sobremesas}
+              style={{ width: '100%', display: 'block' }}
               className="mt-4 rounded-md bg-primary px-6 py-3.5 text-base font-bold text-white shadow-md"
             >
               Ver Receitas

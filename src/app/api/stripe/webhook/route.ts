@@ -36,14 +36,26 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: 'Email do cliente não encontrado.' }, { status: 400 });
       }
 
+      const downloadUrls = {
+        plano: process.env.DOWNLOAD_URL_PLANO as string,
+        sobremesas: process.env.DOWNLOAD_URL_SOBREMESAS as string,
+        segredos: process.env.DOWNLOAD_URL_SEGREDOS as string,
+      };
+
+      if (!downloadUrls.plano || !downloadUrls.sobremesas || !downloadUrls.segredos) {
+        console.error('Uma ou mais URLs de download não estão configuradas.');
+        // Ainda assim, envie o e-mail, mas talvez sem os links ou com uma mensagem de erro
+        // Por agora, vamos apenas logar o erro e continuar
+      }
+
       try {
         await resend.emails.send({
           from: 'Plano Cetox30 <nao-responda@planocetox.com>',
           to: customerEmail,
-          subject: 'Bem-vindo(a) ao Plano Cetox30!',
+          subject: 'Bem-vindo(a) ao Plano Cetox30! Seus links para download estão aqui.',
           react: WelcomeEmail({
             customerName: customerName,
-            downloadUrl: process.env.DOWNLOAD_URL as string,
+            downloadUrls: downloadUrls,
           }),
         });
 

@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     
     if (session.payment_status === 'paid') {
       const customerEmail = session.customer_details?.email;
-      const customerName = session.customer_details?.name || session.metadata?.customer_name || '';
+      const customerName = session.customer_details?.name || '';
 
       if (!customerEmail) {
         console.error('Email do cliente não encontrado na sessão de checkout.');
@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
         const { data, error } = await resend.emails.send({
           from: 'Plano Cetox30 <nao-responda@planocetox.com>',
           to: customerEmail,
-          subject: 'Bem-vindo(a) ao Plano Cetox30! Seus links para download estão aqui.',
+          subject: '✨ Bem-vindo(a) ao CETOX30 — aqui está o seu guia exclusivo!',
           react: WelcomeEmail({
             customerName: customerName,
             downloadUrls: downloadUrls,

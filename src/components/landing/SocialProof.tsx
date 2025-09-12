@@ -5,8 +5,17 @@ import { Card } from '@/components/ui/card';
 import { ShoppingBag, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const names = ["Ana S.", "João P.", "Mariana C.", "Pedro M.", "Sofia R."];
-const locations = ["Lisboa", "Porto", "Coimbra", "Faro", "Braga"];
+const names = [
+    "Ana Silva", "João Santos", "Maria Oliveira", "Pedro Costa", "Sofia Pereira",
+    "Carlos Martins", "Mariana Rodrigues", "José Ferreira", "Beatriz Almeida", "Miguel Sousa",
+    "Catarina Gomes", "André Carvalho", "Inês Fernandes", "Ricardo Pinto", "Laura Ramos",
+    "Francisco Jesus", "Bárbara Moreira", "Tiago Correia", "Daniela Nunes", "Rui Mendes"
+];
+const locations = [
+    "Lisboa", "Porto", "Coimbra", "Faro", "Braga", "Aveiro",
+    "Sintra", "Cascais", "Genebra", "Zurique", "Luxemburgo",
+    "Funchal", "Ponta Delgada", "Évora", "Guimarães"
+];
 
 export function SocialProof() {
     const [isVisible, setIsVisible] = useState(false);

@@ -119,7 +119,7 @@ export const WelcomeEmail = ({ customerName, downloadUrls }: WelcomeEmailProps) 
 
           <Section>
             <Text className="text-base text-gray-700">
-              Se tiver alguma dúvida ou necessitar de apoio, basta responder a este e-mail. A nossa equipa está aqui para si!
+              Este é um e-mail automático e não pode ser respondido. Se tiver alguma dúvida ou necessitar de apoio, por favor, entre em contacto connosco através do nosso site.
             </Text>
             <Text className="mt-4 text-base text-gray-700">
               Com saúde e equilíbrio,<br />

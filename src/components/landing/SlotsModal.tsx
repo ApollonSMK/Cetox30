@@ -24,7 +24,7 @@ export function SlotsModal() {
 
   return (
     <AlertDialog open={showModal} onOpenChange={setShowModal}>
-      <AlertDialogContent className="max-w-md text-center">
+      <AlertDialogContent className="text-center w-[90vw] max-w-sm rounded-md">
         <AlertDialogHeader className="space-y-4 items-center">
           <AlertDialogTitle className="text-2xl font-extrabold font-headline">
             ÚLTIMAS VAGAS COM DESCONTO!

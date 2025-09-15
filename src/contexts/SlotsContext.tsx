@@ -73,28 +73,28 @@ export const SlotsProvider = ({ children, initialSlots = 35 }: { children: React
     }
 
     const slotsToDrop = slots - TARGET_SLOTS;
-    // Prevent division by zero or negative numbers if slots are already low
-    if (slotsToDrop <= 0) {
-      setIsContentVisible(true);
-      return;
-    }
-    
     const intervalMilliseconds = (COUNTDOWN_DURATION_SECONDS / slotsToDrop) * 1000;
 
     const timer = setInterval(() => {
       setSlots(prevSlots => {
-        // Double-check inside interval to avoid race conditions
+        // This is the source of truth for stopping the timer.
         if (prevSlots <= TARGET_SLOTS) {
           clearInterval(timer);
-          setIsContentVisible(true);
-          // Don't show modal if it was already closed manually
-          setShowModal(prev => !prev ? true : prev);
+          // This block won't be reached if the timer is cleared correctly below,
+          // but it's a good safeguard.
+          if (!isContentVisible) {
+            setIsContentVisible(true);
+            setShowModal(true);
+          }
           return prevSlots;
         }
 
         const newSlots = prevSlots - 1;
+        
+        // Use the callback version of decrementSlots to ensure it has the latest state.
         decrementSlots(newSlots);
         
+        // This check is the most important one.
         if (newSlots <= TARGET_SLOTS) {
           clearInterval(timer);
           setIsContentVisible(true);
@@ -109,7 +109,7 @@ export const SlotsProvider = ({ children, initialSlots = 35 }: { children: React
     return () => clearInterval(timer);
     
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isInitialized, decrementSlots]); // Depend on decrementSlots to have the latest version
+  }, [isInitialized]);
 
 
   const contextValue = {

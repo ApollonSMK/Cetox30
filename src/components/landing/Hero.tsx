@@ -8,7 +8,7 @@ import { useSlots } from '@/contexts/SlotsContext';
 
 export function Hero() {
   const [viewers, setViewers] = useState(0);
-  const { slots } = useSlots();
+  const { slots, isContentVisible } = useSlots();
 
   useEffect(() => {
     // Set initial random viewers
@@ -61,18 +61,23 @@ export function Hero() {
           <p className="text-muted-foreground md:text-xl">
             Descubra o sistema revolucionário que já ajudou mais de 1000 pessoas a alcançarem resultados extraordinários.
           </p>
-          <Badge variant="destructive" className="text-base font-semibold animate-pulse p-3 whitespace-normal text-center">
-            🔥 OFERTA LIMITADA: Apenas {slots} vagas restantes! Garanta já a sua!
-          </Badge>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <span className="text-2xl text-muted-foreground line-through">67,98€</span>
-            <span className="text-4xl sm:text-5xl font-bold text-primary">33,99€</span>
-          </div>
+          {isContentVisible && (
+            <>
+              <Badge variant="destructive" className="text-base font-semibold animate-pulse p-3 whitespace-normal text-center">
+                🔥 OFERTA LIMITADA: Apenas {slots} vagas restantes! Garanta já a sua!
+              </Badge>
 
-          <Button asChild size="lg" className="font-bold text-xl h-14 animate-breathing-pulse shadow-xl w-full sm:w-auto">
-            <a href="/checkout">QUERO EMAGRECER</a>
-          </Button>
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <span className="text-2xl text-muted-foreground line-through">67,98€</span>
+                <span className="text-4xl sm:text-5xl font-bold text-primary">33,99€</span>
+              </div>
+
+              <Button asChild size="lg" className="font-bold text-xl h-14 animate-breathing-pulse shadow-xl w-full sm:w-auto">
+                <a href="/checkout">QUERO EMAGRECER</a>
+              </Button>
+            </>
+          )}
         </div>
       </div>
     </section>

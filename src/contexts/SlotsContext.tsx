@@ -6,7 +6,7 @@ const SLOTS_STORAGE_KEY = 'cetox30_slots';
 const INITIAL_SLOTS_VALUE = 35;
 const TARGET_SLOTS = 15;
 const COUNTDOWN_DURATION_SECONDS = 420; // 7 minutes
-const CONTENT_REVEAL_DELAY_SECONDS = 4680; // 78 minutes
+const CONTENT_REVEAL_DELAY_SECONDS = 420; // 7 minutes
 
 interface SlotsContextType {
   slots: number;
@@ -21,34 +21,9 @@ export const SlotsProvider = ({ children, initialSlots = INITIAL_SLOTS_VALUE }: 
   const [notificationTrigger, setNotificationTrigger] = useState(0);
   const [isContentVisible, setIsContentVisible] = useState(false);
 
-  // Efeito para carregar o estado inicial do localStorage
+  // Effect to handle content visibility timer
   useEffect(() => {
-    try {
-      const storedSlots = localStorage.getItem(SLOTS_STORAGE_KEY);
-      if (storedSlots !== null) {
-        const parsedSlots = parseInt(storedSlots, 10);
-        if (!isNaN(parsedSlots) && parsedSlots > 0) {
-          if (parsedSlots <= TARGET_SLOTS) {
-            // Se as vagas armazenadas já atingiram o alvo, mostramos tudo imediatamente.
-            setSlots(parsedSlots);
-            setIsContentVisible(true);
-          } else {
-            // Caso contrário, usamos o valor inicial para garantir que o processo comece do ponto certo.
-            setSlots(initialSlots);
-          }
-        }
-      } else {
-        localStorage.setItem(SLOTS_STORAGE_KEY, String(initialSlots));
-      }
-    } catch (error) {
-      console.warn("Could not read slots from localStorage", error);
-      setSlots(initialSlots);
-    }
-  }, [initialSlots]);
-
-  // Efeito para revelar o conteúdo após o delay de 78 minutos
-  useEffect(() => {
-    // Se o conteúdo já está visível (ex, por causa do localStorage), não faz nada.
+    // If content is already visible (e.g., from a previous session that completed the timer), do nothing.
     if (isContentVisible) {
       return;
     }
@@ -57,35 +32,38 @@ export const SlotsProvider = ({ children, initialSlots = INITIAL_SLOTS_VALUE }: 
       setIsContentVisible(true);
     }, CONTENT_REVEAL_DELAY_SECONDS * 1000);
 
-    // Limpa o temporizador se o componente for desmontado
+    // Cleanup timer if the component unmounts
     return () => clearTimeout(contentRevealTimer);
   }, [isContentVisible]);
 
 
-  // Efeito para diminuir as vagas, SÓ DEPOIS do conteúdo estar visível
+  // Effect to handle the slots countdown, ONLY after the content is visible.
   useEffect(() => {
-    // Só executa se o conteúdo estiver visível e se ainda houver vagas para diminuir.
+    // This effect should only run once the content is visible and if there are slots to count down.
     if (!isContentVisible || slots <= TARGET_SLOTS) {
+        if(isContentVisible && slots <= TARGET_SLOTS) {
+            setSlots(TARGET_SLOTS);
+        }
       return;
     }
 
     const slotsToDrop = slots - TARGET_SLOTS;
     if (slotsToDrop <= 0) return;
     
-    // O intervalo é calculado para que a queda dure 7 minutos (420 segundos)
+    // The interval is calculated so the drop lasts for COUNTDOWN_DURATION_SECONDS
     const intervalMilliseconds = (COUNTDOWN_DURATION_SECONDS / slotsToDrop) * 1000;
 
     const slotTimer = setInterval(() => {
       setSlots(prevSlots => {
-        // Para o temporizador se atingir o alvo
+        // Stop the timer if the target is reached
         if (prevSlots <= TARGET_SLOTS) {
           clearInterval(slotTimer);
-          return prevSlots;
+          return TARGET_SLOTS;
         }
 
         const newSlots = prevSlots - 1;
         
-        // Dispara a notificação de compra
+        // Trigger the purchase notification
         setNotificationTrigger(val => val + 1);
         
         try {
@@ -98,7 +76,7 @@ export const SlotsProvider = ({ children, initialSlots = INITIAL_SLOTS_VALUE }: 
       });
     }, intervalMilliseconds);
 
-    // Limpa o temporizador se o componente for desmontado ou as dependências mudarem
+    // Cleanup timer if the component unmounts or dependencies change
     return () => clearInterval(slotTimer);
   }, [isContentVisible, slots]);
 

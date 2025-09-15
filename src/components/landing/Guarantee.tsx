@@ -20,7 +20,7 @@ export function Guarantee() {
                             Sem perguntas, sem complicações.
                         </p>
                     </div>
-                    <Button asChild size="lg">
+                    <Button asChild size="lg" className="font-bold">
                         <a href="/checkout">
                             QUERO MUDAR AGORA
                             <ArrowRight className="ml-2 h-5 w-5" />

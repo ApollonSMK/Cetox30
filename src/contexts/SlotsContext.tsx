@@ -66,27 +66,39 @@ export const SlotsProvider = ({ children, initialSlots = 35 }: { children: React
   useEffect(() => {
     if (!isInitialized) return;
 
-    // Only run the timer if we are above the target
+    // If we load and slots are already low, show content immediately.
     if (slots <= TARGET_SLOTS) {
-      setIsContentVisible(true); // If we load and slots are already low, show content
+      setIsContentVisible(true);
       return;
     }
 
     const slotsToDrop = slots - TARGET_SLOTS;
+    // Prevent division by zero or negative numbers if slots are already low
+    if (slotsToDrop <= 0) {
+      setIsContentVisible(true);
+      return;
+    }
+    
     const intervalMilliseconds = (COUNTDOWN_DURATION_SECONDS / slotsToDrop) * 1000;
 
     const timer = setInterval(() => {
       setSlots(prevSlots => {
-        const newSlots = prevSlots - 1;
-        
-        if (newSlots <= prevSlots) { // ensure it only runs once per tick
-            decrementSlots(newSlots);
+        // Double-check inside interval to avoid race conditions
+        if (prevSlots <= TARGET_SLOTS) {
+          clearInterval(timer);
+          setIsContentVisible(true);
+          // Don't show modal if it was already closed manually
+          setShowModal(prev => !prev ? true : prev);
+          return prevSlots;
         }
+
+        const newSlots = prevSlots - 1;
+        decrementSlots(newSlots);
         
         if (newSlots <= TARGET_SLOTS) {
           clearInterval(timer);
-          setShowModal(true);
           setIsContentVisible(true);
+          setShowModal(true);
           return TARGET_SLOTS;
         }
 
@@ -97,7 +109,7 @@ export const SlotsProvider = ({ children, initialSlots = 35 }: { children: React
     return () => clearInterval(timer);
     
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isInitialized, slots > TARGET_SLOTS]); // Rerun if slots are reset above target
+  }, [isInitialized, decrementSlots]); // Depend on decrementSlots to have the latest version
 
 
   const contextValue = {

@@ -35,7 +35,7 @@ export function Hero() {
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-primary">
             Desafio
           </h2>
-          <h1 className="text-4xl font-extrabold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline max-w-4xl mx-auto">
+          <h1 className="text-4xl font-extrabold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline max-w-4xl mx-auto uppercase">
             <span className="text-primary">30 Dias</span> para perder peso em casa{" "}
             <span className="text-primary">sem deixar de comer</span> o que mais gosta!
           </h1>

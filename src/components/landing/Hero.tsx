@@ -63,7 +63,7 @@ export function Hero() {
           </p>
 
           {isContentVisible && (
-            <>
+            <div className="flex flex-col items-center space-y-4 w-full">
               <Badge variant="destructive" className="text-base font-semibold animate-pulse p-3 whitespace-normal text-center">
                 🔥 OFERTA LIMITADA: Apenas {slots} vagas restantes! Garanta já a sua!
               </Badge>
@@ -76,7 +76,7 @@ export function Hero() {
               <Button asChild size="lg" className="font-bold text-xl h-14 animate-breathing-pulse shadow-xl w-full sm:w-auto">
                 <a href="/checkout">QUERO EMAGRECER</a>
               </Button>
-            </>
+            </div>
           )}
         </div>
       </div>

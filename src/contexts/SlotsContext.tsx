@@ -4,7 +4,7 @@ import React, { createContext, useState, useContext, ReactNode, useEffect, useCa
 
 const SLOTS_STORAGE_KEY = 'cetox30_slots';
 const TARGET_SLOTS = 15;
-const COUNTDOWN_DURATION_SECONDS = 180; // 3 minutes
+const COUNTDOWN_DURATION_SECONDS = 360; // 6 minutes
 
 interface SlotsContextType {
   slots: number;

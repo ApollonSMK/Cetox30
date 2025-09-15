@@ -5,11 +5,11 @@ import React, { createContext, useState, useContext, ReactNode, useEffect, useCa
 const SLOTS_STORAGE_KEY = 'cetox30_slots';
 const TARGET_SLOTS = 15;
 const COUNTDOWN_DURATION_SECONDS = 420; // 7 minutes
+const CONTENT_REVEAL_DELAY_SECONDS = 4680; // 78 minutes
 
 interface SlotsContextType {
   slots: number;
   notificationTrigger: number;
-  decrementSlots: () => void;
   isContentVisible: boolean;
 }
 
@@ -28,7 +28,7 @@ export const SlotsProvider = ({ children, initialSlots = 35 }: { children: React
         if (!isNaN(parsedSlots) && parsedSlots > 0) {
           if (parsedSlots <= TARGET_SLOTS) {
             setSlots(parsedSlots);
-            setIsContentVisible(true);
+            setIsContentVisible(true); // Se as vagas já estão baixas, mostra o conteúdo
           } else {
             setSlots(initialSlots);
             localStorage.setItem(SLOTS_STORAGE_KEY, String(initialSlots));
@@ -41,60 +41,56 @@ export const SlotsProvider = ({ children, initialSlots = 35 }: { children: React
       console.warn("Could not read slots from localStorage", error);
     }
   }, [initialSlots]);
-
-  const decrementSlots = useCallback(() => {
-    setSlots((prevSlots) => {
-      const updatedSlots = prevSlots > 0 ? prevSlots - 1 : 0;
-      try {
-        localStorage.setItem(SLOTS_STORAGE_KEY, String(updatedSlots));
-      } catch (error) {
-        console.warn("Could not save slots to localStorage", error);
-      }
-      if (updatedSlots > 0) {
-        setNotificationTrigger(val => val + 1);
-      }
-      return updatedSlots;
-    });
-  }, []);
-
+  
+  // Efeito para revelar o conteúdo após o delay
   useEffect(() => {
     if (isContentVisible) {
-        return;
+      return;
+    }
+
+    const contentRevealTimer = setTimeout(() => {
+      setIsContentVisible(true);
+    }, CONTENT_REVEAL_DELAY_SECONDS * 1000);
+
+    return () => {
+      clearTimeout(contentRevealTimer);
+    };
+  }, [isContentVisible]);
+
+  // Efeito para diminuir as vagas, SÓ DEPOIS do conteúdo estar visível
+  useEffect(() => {
+    if (!isContentVisible || slots <= TARGET_SLOTS) {
+      return;
     }
 
     const slotsToDrop = slots - TARGET_SLOTS;
-    if (slotsToDrop <= 0) {
-        setIsContentVisible(true);
-        return;
-    }
+    if (slotsToDrop <= 0) return;
     
     const intervalMilliseconds = (COUNTDOWN_DURATION_SECONDS / slotsToDrop) * 1000;
 
     const slotTimer = setInterval(() => {
-        setSlots(prevSlots => {
-            const newSlots = prevSlots > TARGET_SLOTS ? prevSlots - 1 : TARGET_SLOTS;
-             if (newSlots > 0) {
-                setNotificationTrigger(val => val + 1);
-            }
-             try {
-                localStorage.setItem(SLOTS_STORAGE_KEY, String(newSlots));
-            } catch (error) {
-                console.warn("Could not save slots to localStorage", error);
-            }
-            if (newSlots === TARGET_SLOTS) {
-                 clearInterval(slotTimer);
-            }
-            return newSlots;
-        });
+      setSlots(prevSlots => {
+        if (prevSlots <= TARGET_SLOTS) {
+          clearInterval(slotTimer);
+          return prevSlots;
+        }
+
+        const newSlots = prevSlots - 1;
+        
+        setNotificationTrigger(val => val + 1);
+        
+        try {
+          localStorage.setItem(SLOTS_STORAGE_KEY, String(newSlots));
+        } catch (error) {
+          console.warn("Could not save slots to localStorage", error);
+        }
+        
+        return newSlots;
+      });
     }, intervalMilliseconds);
 
-    const contentRevealTimer = setTimeout(() => {
-        setIsContentVisible(true);
-    }, COUNTDOWN_DURATION_SECONDS * 1000);
-
     return () => {
-        clearInterval(slotTimer);
-        clearTimeout(contentRevealTimer);
+      clearInterval(slotTimer);
     };
   }, [isContentVisible, slots]);
 
@@ -102,7 +98,6 @@ export const SlotsProvider = ({ children, initialSlots = 35 }: { children: React
   const contextValue = {
     slots,
     notificationTrigger,
-    decrementSlots,
     isContentVisible,
   };
 

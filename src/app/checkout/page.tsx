@@ -143,7 +143,7 @@ export default function CheckoutPage() {
                       )}
                     />
                     <Button type="submit" className="w-full font-bold" size="lg">
-                      Seguir para Pagamento
+                      INSCREVER-ME
                     </Button>
                   </form>
                 </Form>

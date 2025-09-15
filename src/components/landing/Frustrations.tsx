@@ -31,7 +31,7 @@ export function Frustrations() {
         <div className="container px-4 md:px-6 flex flex-col items-center">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Está <span className="text-primary">Farto(a)</span> de...</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">ESTÁ <span className="text-primary">FARTO(A)</span> DE...</h2>
             </div>
           </div>
           <div className="grid max-w-4xl items-stretch gap-6 sm:grid-cols-2 md:gap-8 mt-12">

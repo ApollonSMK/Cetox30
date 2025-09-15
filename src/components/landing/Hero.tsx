@@ -49,7 +49,7 @@ export function Hero() {
               className="absolute top-0 left-0 w-full h-full border-0"
             ></iframe>
              {viewers > 0 && (
-              <div className="absolute bottom-4 left-4 bg-black/50 text-white p-2 rounded-lg flex items-center gap-2 text-sm backdrop-blur-sm animate-fade-in-up">
+              <div className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-lg flex items-center gap-2 text-sm backdrop-blur-sm animate-fade-in-up">
                 <Eye className="h-5 w-5" />
                 <span>{viewers} pessoas estão a assistir a este vídeo</span>
               </div>

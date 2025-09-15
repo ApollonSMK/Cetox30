@@ -9,22 +9,25 @@ import { useSlots } from '@/contexts/SlotsContext';
 const names = [
     "Ana Silva", "João Santos", "Maria Oliveira", "Pedro Costa", "Sofia Pereira", "Carlos Martins", "Mariana Rodrigues", "José Ferreira", "Beatriz Almeida", "Miguel Sousa",
     "Catarina Gomes", "André Carvalho", "Inês Fernandes", "Ricardo Pinto", "Laura Ramos", "Francisco Jesus", "Bárbara Moreira", "Tiago Correia", "Daniela Nunes", "Rui Mendes",
-    "Léa Schmitt", "Paul Muller", "Sophie Weber", "Felix Becker", "Marie Hoffmann", "Lars Fischer", "Julia Schneider", "Tom Klein", "Emma Wagner", "Ben Bauer",
-    "Lucía García", "Mateo Rodríguez", "Sofía Martínez", "Hugo López", "Martina Sánchez", "Daniel Pérez", "Paula Gómez", "Alejandro Martín", "Valeria Ruiz", "Pablo Díaz",
     "Chloé Dubois", "Louis Lambert", "Manon Bernard", "Gabriel Thomas", "Camille Petit", "Jules Durand", "Alice Moreau", "Adam Simon", "Louise Michel", "Hugo Leroy",
-    "Giulia Rossi", "Alessandro Russo", "Sofia Ferrari", "Lorenzo Esposito", "Alice Bianchi", "Matteo Romano", "Beatrice Colombo", "Leonardo Ricci", "Ginevra Marino", "Tommaso Greco"
+    "Giulia Rossi", "Alessandro Russo", "Sofia Ferrari", "Lorenzo Esposito", "Alice Bianchi", "Matteo Romano", "Beatrice Colombo", "Leonardo Ricci", "Ginevra Marino", "Tommaso Greco",
+    "Léa Schmitt", "Paul Muller", "Sophie Weber", "Felix Becker", "Marie Hoffmann", "Lars Fischer", "Julia Schneider", "Tom Klein", "Emma Wagner", "Ben Bauer",
+    "Lucía García", "Mateo Rodríguez", "Sofía Martínez", "Hugo López", "Martina Sánchez", "Daniel Pérez", "Paula Gómez", "Alejandro Martín", "Valeria Ruiz", "Pablo Díaz"
 ];
 
 const locations = [
     { city: "Lisboa", country: "Portugal", flag: "🇵🇹" }, { city: "Porto", country: "Portugal", flag: "🇵🇹" }, { city: "Faro", country: "Portugal", flag: "🇵🇹" },
     { city: "Braga", country: "Portugal", flag: "🇵🇹" }, { city: "Coimbra", country: "Portugal", flag: "🇵🇹" },
     { city: "Luxemburgo", country: "Luxemburgo", flag: "🇱🇺" }, { city: "Esch-sur-Alzette", country: "Luxemburgo", flag: "🇱🇺" },
+    { city: "Genebra", country: "Suíça", flag: "🇨🇭" }, { city: "Zurique", country: "Suíça", flag: "🇨🇭" }, { city: "Berna", country: "Suíça", flag: "🇨🇭" },
+    { city: "Paris", country: "França", flag: "🇫🇷" }, { city: "Marselha", country: "França", flag: "🇫🇷" }, { city: "Lyon", country: "França", flag: "🇫🇷" },
     { city: "Munique", country: "Alemanha", flag: "🇩🇪" }, { city: "Berlim", country: "Alemanha", flag: "🇩🇪" }, { city: "Hamburgo", country: "Alemanha", flag: "🇩🇪" },
     { city: "Bruxelas", country: "Bélgica", flag: "🇧🇪" }, { city: "Antuérpia", country: "Bélgica", flag: "🇧🇪" },
     { city: "Madrid", country: "Espanha", flag: "🇪🇸" }, { city: "Barcelona", country: "Espanha", flag: "🇪🇸" }, { city: "Valência", country: "Espanha", flag: "🇪🇸" },
-    { city: "Genebra", country: "Suíça", flag: "🇨🇭" }, { city: "Zurique", country: "Suíça", flag: "🇨🇭" },
-    { city: "Paris", country: "França", flag: "🇫🇷" }, { city: "Marselha", country: "França", flag: "🇫🇷" },
+    { city: "Roma", country: "Itália", flag: "🇮🇹" }, { city: "Milão", country: "Itália", flag: "🇮🇹" },
+    { city: "Amesterdão", country: "Holanda", flag: "🇳🇱" }
 ];
+
 
 const shuffleArray = <T,>(array: T[]): T[] => {
   const newArray = [...array];

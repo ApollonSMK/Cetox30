@@ -73,40 +73,35 @@ export const SlotsProvider = ({ children, initialSlots = 35 }: { children: React
     }
 
     const slotsToDrop = slots - TARGET_SLOTS;
+    if (slotsToDrop <= 0) return; // Safeguard
+    
     const intervalMilliseconds = (COUNTDOWN_DURATION_SECONDS / slotsToDrop) * 1000;
 
     const timer = setInterval(() => {
-      setSlots(prevSlots => {
-        // This is the source of truth for stopping the timer.
-        if (prevSlots <= TARGET_SLOTS) {
-          clearInterval(timer);
-          // This block won't be reached if the timer is cleared correctly below,
-          // but it's a good safeguard.
-          if (!isContentVisible) {
-            setIsContentVisible(true);
-            setShowModal(true);
-          }
-          return prevSlots;
-        }
-
-        const newSlots = prevSlots - 1;
-        
-        // Use the callback version of decrementSlots to ensure it has the latest state.
-        decrementSlots(newSlots);
-        
-        // This check is the most important one.
-        if (newSlots <= TARGET_SLOTS) {
-          clearInterval(timer);
-          setIsContentVisible(true);
-          setShowModal(true);
-          return TARGET_SLOTS;
-        }
-
-        return newSlots;
-      });
+        decrementSlots();
     }, intervalMilliseconds);
 
-    return () => clearInterval(timer);
+    // This separate timer ONLY handles the content visibility and modal popup.
+    const contentRevealTimer = setTimeout(() => {
+        setIsContentVisible(true);
+        setShowModal(true);
+        // We also stop the slot countdown here to ensure it syncs up.
+        clearInterval(timer); 
+        // Manually set slots to the target to ensure consistency
+        setSlots(TARGET_SLOTS);
+        try {
+            localStorage.setItem(SLOTS_STORAGE_KEY, String(TARGET_SLOTS));
+        } catch (error) {
+            console.warn("Could not save slots to localStorage", error);
+        }
+
+    }, COUNTDOWN_DURATION_SECONDS * 1000);
+
+    // Cleanup function
+    return () => {
+        clearInterval(timer);
+        clearTimeout(contentRevealTimer);
+    };
     
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInitialized]);

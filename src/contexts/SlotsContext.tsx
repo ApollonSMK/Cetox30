@@ -12,6 +12,7 @@ interface SlotsContextType {
   showModal: boolean;
   setShowModal: (show: boolean) => void;
   decrementSlots: () => void; // Kept for manual triggers if needed
+  isContentVisible: boolean;
 }
 
 const SlotsContext = createContext<SlotsContextType | undefined>(undefined);
@@ -21,6 +22,7 @@ export const SlotsProvider = ({ children, initialSlots = 35 }: { children: React
   const [isInitialized, setIsInitialized] = useState(false);
   const [notificationTrigger, setNotificationTrigger] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  const [isContentVisible, setIsContentVisible] = useState(false);
 
   // Load from localStorage on mount
   useEffect(() => {
@@ -66,6 +68,7 @@ export const SlotsProvider = ({ children, initialSlots = 35 }: { children: React
 
     // Only run the timer if we are above the target
     if (slots <= TARGET_SLOTS) {
+      setIsContentVisible(true); // If we load and slots are already low, show content
       return;
     }
 
@@ -83,6 +86,7 @@ export const SlotsProvider = ({ children, initialSlots = 35 }: { children: React
         if (newSlots <= TARGET_SLOTS) {
           clearInterval(timer);
           setShowModal(true);
+          setIsContentVisible(true);
           return TARGET_SLOTS;
         }
 
@@ -102,6 +106,7 @@ export const SlotsProvider = ({ children, initialSlots = 35 }: { children: React
     showModal,
     setShowModal,
     decrementSlots: () => decrementSlots(), // expose manual decrement
+    isContentVisible,
   };
 
   return (

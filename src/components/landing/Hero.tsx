@@ -62,12 +62,12 @@ export function Hero() {
             Descubra o sistema revolucionário que já ajudou mais de 1000 pessoas a alcançarem resultados extraordinários.
           </p>
 
+          <Badge variant="destructive" className="text-base font-semibold animate-pulse p-3 whitespace-normal text-center">
+            🔥 OFERTA LIMITADA: Apenas {slots} vagas restantes! Garanta já a sua!
+          </Badge>
+
           {isContentVisible && (
             <div className="flex flex-col items-center space-y-4 w-full">
-              <Badge variant="destructive" className="text-base font-semibold animate-pulse p-3 whitespace-normal text-center">
-                🔥 OFERTA LIMITADA: Apenas {slots} vagas restantes! Garanta já a sua!
-              </Badge>
-
               <div className="flex flex-col sm:flex-row items-center gap-4">
                 <span className="text-2xl text-muted-foreground line-through">67,98€</span>
                 <span className="text-4xl sm:text-5xl font-bold text-primary">33,99€</span>

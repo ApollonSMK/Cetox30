@@ -43,7 +43,7 @@ export function CtaSection() {
                      </div>
                     <Badge variant="destructive" className="text-base font-semibold p-3 animate-pulse">
                         <Clock className="h-5 w-5 mr-2" />
-                        Estes bônus estão disponíveis apenas até o cronômetro zerar!
+                        Bónus disponíveis por tempo limitado!
                     </Badge>
                 </div>
             </div>

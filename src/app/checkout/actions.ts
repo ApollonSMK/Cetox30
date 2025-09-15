@@ -2,6 +2,7 @@
 
 import { z } from 'zod';
 import Stripe from 'stripe';
+import { headers } from 'next/headers';
 
 const checkoutSchema = z.object({
   name: z.string().min(2),
@@ -13,8 +14,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 });
 
 export async function createCheckoutSession(
-  values: z.infer<typeof checkoutSchema>,
-  appUrl: string
+  values: z.infer<typeof checkoutSchema>
 ) {
   const validatedFields = checkoutSchema.safeParse(values);
 
@@ -23,6 +23,12 @@ export async function createCheckoutSession(
       error: 'Dados inválidos.',
     };
   }
+  
+  const origin = headers().get('origin');
+  if (!origin) {
+    return { error: 'Não foi possível determinar a origem da aplicação.' };
+  }
+
 
   const { name, email } = validatedFields.data;
   const priceId = process.env.STRIPE_PRICE_ID;
@@ -32,12 +38,8 @@ export async function createCheckoutSession(
     return { error: 'A configuração de pagamento está incompleta.' };
   }
 
-  if (!appUrl) {
-    return { error: 'A configuração da aplicação está incompleta.' };
-  }
-
-  const successUrl = `${appUrl}/success?session_id={CHECKOUT_SESSION_ID}`;
-  const cancelUrl = `${appUrl}/checkout`;
+  const successUrl = `${origin}/success?session_id={CHECKOUT_SESSION_ID}`;
+  const cancelUrl = `${origin}/checkout`;
 
   try {
     const session = await stripe.checkout.sessions.create({

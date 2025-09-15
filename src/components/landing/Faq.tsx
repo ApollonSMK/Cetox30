@@ -34,10 +34,10 @@ const CustomAccordionTrigger = React.forwardRef<
   <AccordionTrigger
     ref={ref}
     {...props}
-    className="text-primary font-semibold hover:no-underline"
+    className="text-primary font-semibold hover:no-underline text-left"
   >
     {children}
-    {open ? <Minus className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
+    {open ? <Minus className="h-5 w-5 shrink-0" /> : <Plus className="h-5 w-5 shrink-0" />}
   </AccordionTrigger>
 ));
 CustomAccordionTrigger.displayName = "CustomAccordionTrigger";
@@ -50,15 +50,15 @@ export function Faq() {
       <div className="container px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline uppercase">
-            Perguntas <span className="text-primary">FREQUENTES</span>
+            PERGUNTAS <span className="text-primary">FREQUENTES</span>
           </h2>
         </div>
         <div className="mx-auto max-w-3xl space-y-4">
           <Accordion type="single" collapsible className="w-full" onValueChange={(value) => setOpenItem(value)}>
             {staticFaqs.map((faq, i) => (
-              <AccordionItem value={`item-${i}`} key={i} className="bg-white rounded-lg shadow-md border-none p-2">
+              <AccordionItem value={`item-${i}`} key={i} className="bg-white rounded-lg shadow-md border-none p-4">
                 <CustomAccordionTrigger open={openItem === `item-${i}`}>{faq.question}</CustomAccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground pt-2 px-4">{faq.answer}</AccordionContent>
+                <AccordionContent className="text-base text-muted-foreground pt-4 px-0">{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

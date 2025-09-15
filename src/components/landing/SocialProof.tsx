@@ -26,8 +26,6 @@ const locations = [
     { city: "Paris", country: "França", flag: "🇫🇷" }, { city: "Marselha", country: "França", flag: "🇫🇷" },
 ];
 
-
-// Helper to shuffle an array
 const shuffleArray = <T,>(array: T[]): T[] => {
   const newArray = [...array];
   for (let i = newArray.length - 1; i > 0; i--) {
@@ -36,7 +34,6 @@ const shuffleArray = <T,>(array: T[]): T[] => {
   }
   return newArray;
 };
-
 
 type Proof = {
     name: string;
@@ -48,7 +45,7 @@ function TimeAgo({ time }: { time: number }) {
     const [now, setNow] = useState(Date.now());
 
     useEffect(() => {
-        const interval = setInterval(() => setNow(Date.now()), 5000); // update every 5 seconds
+        const interval = setInterval(() => setNow(Date.now()), 5000);
         return () => clearInterval(interval);
     }, []);
 
@@ -64,51 +61,39 @@ function TimeAgo({ time }: { time: number }) {
 export function SocialProof() {
     const [isVisible, setIsVisible] = useState(false);
     const [currentProof, setCurrentProof] = useState<Proof | null>(null);
-    const { decrementSlots } = useSlots();
-    
-    // State to hold the shuffled names and the current index
     const [shuffledNames, setShuffledNames] = useState<string[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const { notificationTrigger } = useSlots();
 
-    // Shuffle names only once on component mount
     useEffect(() => {
         setShuffledNames(shuffleArray(names));
     }, []);
 
-    const showRandomProof = useCallback(() => {
+    const showProof = useCallback(() => {
         if (shuffledNames.length === 0) return;
 
-        // Reset index if we've used all names
-        const index = currentIndex >= shuffledNames.length ? 0 : currentIndex;
-
+        const index = currentIndex % shuffledNames.length;
         const randomName = shuffledNames[index];
         const randomLocation = locations[Math.floor(Math.random() * locations.length)];
         
         setCurrentProof({ name: randomName, location: randomLocation, time: Date.now() });
         setIsVisible(true);
-        decrementSlots();
+        setCurrentIndex(prev => prev + 1);
 
-        // Increment index for the next use
-        setCurrentIndex(index + 1);
-
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             setIsVisible(false);
-        }, 6000); // Hide after 6 seconds
+        }, 6000);
+        
+        return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [shuffledNames, currentIndex, decrementSlots]);
+    }, [shuffledNames, currentIndex]);
 
     useEffect(() => {
-        const initialTimeout = setTimeout(showRandomProof, 7000); 
-
-        const interval = setInterval(() => {
-            showRandomProof();
-        }, Math.random() * (15000 - 8000) + 8000);
-
-        return () => {
-            clearTimeout(initialTimeout);
-            clearInterval(interval);
-        };
-    }, [showRandomProof]);
+        if (notificationTrigger > 0) {
+            showProof();
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [notificationTrigger]);
 
     return (
         <div 

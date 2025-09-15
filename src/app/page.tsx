@@ -14,6 +14,7 @@ import { Faq } from "@/components/landing/Faq";
 import { Footer } from "@/components/landing/Footer";
 import { SocialProof } from "@/components/landing/SocialProof";
 import { SlotsProvider } from "@/contexts/SlotsContext";
+import { SlotsModal } from "@/components/landing/SlotsModal";
 
 export default function Home() {
   return (
@@ -58,6 +59,7 @@ export default function Home() {
           </main>
           <Footer />
           <SocialProof />
+          <SlotsModal />
         </div>
       </div>
     </SlotsProvider>

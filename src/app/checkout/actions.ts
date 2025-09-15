@@ -43,7 +43,7 @@ export async function createCheckoutSession(
 
   try {
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card', 'multibanco', 'mbway'],
+      payment_method_types: ['card', 'multibanco'],
       line_items: [
         {
           price: priceId,

@@ -9,10 +9,9 @@ import { useSlots } from '@/contexts/SlotsContext';
 const names = [
     "Ana Silva", "João Santos", "Maria Oliveira", "Pedro Costa", "Sofia Pereira", "Carlos Martins", "Mariana Rodrigues", "José Ferreira", "Beatriz Almeida", "Miguel Sousa",
     "Catarina Gomes", "André Carvalho", "Inês Fernandes", "Ricardo Pinto", "Laura Ramos", "Francisco Jesus", "Bárbara Moreira", "Tiago Correia", "Daniela Nunes", "Rui Mendes",
-    "Chloé Dubois", "Louis Lambert", "Manon Bernard", "Gabriel Thomas", "Camille Petit", "Jules Durand", "Alice Moreau", "Adam Simon", "Louise Michel", "Hugo Leroy",
-    "Giulia Rossi", "Alessandro Russo", "Sofia Ferrari", "Lorenzo Esposito", "Alice Bianchi", "Matteo Romano", "Beatrice Colombo", "Leonardo Ricci", "Ginevra Marino", "Tommaso Greco",
-    "Léa Schmitt", "Paul Muller", "Sophie Weber", "Felix Becker", "Marie Hoffmann", "Lars Fischer", "Julia Schneider", "Tom Klein", "Emma Wagner", "Ben Bauer",
-    "Lucía García", "Mateo Rodríguez", "Sofía Martínez", "Hugo López", "Martina Sánchez", "Daniel Pérez", "Paula Gómez", "Alejandro Martín", "Valeria Ruiz", "Pablo Díaz"
+    "Joana Antunes", "Bruno Alves", "Marta Dias", "Gonçalo Lopes", "Filipa Azevedo", "Sérgio Ribeiro", "Helena Gonçalves", "Nuno Marques", "Patrícia Cunha", "David Teixeira",
+    "Andreia Lima", "Vasco Monteiro", "Sílvia Castro", "Fábio Duarte", "Raquel Pires", "Jorge Fonseca", "Liliana Brandão", "Marco Reis", "Susana Barros", "Vítor Guerra",
+    "Cláudia Melo", "Eduardo Neves", "Tânia Pinheiro", "Luís Esteves", "Vanessa Campos", "Fernando Tavares", "Diana Moreira", "Paulo Vicente", "Cristina Rocha", "Simão Henriques"
 ];
 
 const locations = [

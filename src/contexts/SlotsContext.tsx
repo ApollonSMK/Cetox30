@@ -9,8 +9,6 @@ const COUNTDOWN_DURATION_SECONDS = 360; // 6 minutes
 interface SlotsContextType {
   slots: number;
   notificationTrigger: number;
-  showModal: boolean;
-  setShowModal: (show: boolean) => void;
   decrementSlots: () => void;
   isContentVisible: boolean;
 }
@@ -20,7 +18,6 @@ const SlotsContext = createContext<SlotsContextType | undefined>(undefined);
 export const SlotsProvider = ({ children, initialSlots = 35 }: { children: ReactNode, initialSlots: number }) => {
   const [slots, setSlots] = useState(initialSlots);
   const [notificationTrigger, setNotificationTrigger] = useState(0);
-  const [showModal, setShowModal] = useState(false);
   const [isContentVisible, setIsContentVisible] = useState(false);
 
   useEffect(() => {
@@ -33,7 +30,7 @@ export const SlotsProvider = ({ children, initialSlots = 35 }: { children: React
             setSlots(parsedSlots);
             setIsContentVisible(true);
           } else {
-            setSlots(initialSlots); // Reset to initial if above target
+            setSlots(initialSlots);
             localStorage.setItem(SLOTS_STORAGE_KEY, String(initialSlots));
           }
         }
@@ -93,7 +90,6 @@ export const SlotsProvider = ({ children, initialSlots = 35 }: { children: React
 
     const contentRevealTimer = setTimeout(() => {
         setIsContentVisible(true);
-        setShowModal(true);
     }, COUNTDOWN_DURATION_SECONDS * 1000);
 
     return () => {
@@ -106,8 +102,6 @@ export const SlotsProvider = ({ children, initialSlots = 35 }: { children: React
   const contextValue = {
     slots,
     notificationTrigger,
-    showModal,
-    setShowModal,
     decrementSlots,
     isContentVisible,
   };

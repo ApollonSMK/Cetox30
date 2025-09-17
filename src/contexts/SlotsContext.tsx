@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 const INITIAL_SLOTS_VALUE = 35;
 const TARGET_SLOTS = 15;
@@ -16,24 +17,32 @@ interface SlotsContextType {
 const SlotsContext = createContext<SlotsContextType | undefined>(undefined);
 
 export const SlotsProvider = ({ children, initialSlots = INITIAL_SLOTS_VALUE }: { children: ReactNode, initialSlots?: number }) => {
+  const searchParams = useSearchParams();
+  const unlock = searchParams.get('unlock') === 'true';
+
   const [slots, setSlots] = useState(initialSlots);
   const [notificationTrigger, setNotificationTrigger] = useState(0);
-  const [isContentVisible, setIsContentVisible] = useState(false);
+  const [isContentVisible, setIsContentVisible] = useState(unlock);
 
   // Effect to handle content visibility timer (reveal after 7 minutes)
   useEffect(() => {
+    if (unlock) {
+      setIsContentVisible(true);
+      setSlots(TARGET_SLOTS);
+      return;
+    }
+
     const contentRevealTimer = setTimeout(() => {
       setIsContentVisible(true);
     }, CONTENT_REVEAL_DELAY_SECONDS * 1000);
 
     return () => clearTimeout(contentRevealTimer);
-  }, []);
+  }, [unlock]);
 
   // Effect to handle the slots countdown and notifications
   useEffect(() => {
-    // Only run the countdown if there are slots to count down
-    if (slots <= TARGET_SLOTS) {
-      return;
+    if (unlock || slots <= TARGET_SLOTS) {
+        return;
     }
 
     const slotsToDrop = INITIAL_SLOTS_VALUE - TARGET_SLOTS;
@@ -58,7 +67,7 @@ export const SlotsProvider = ({ children, initialSlots = INITIAL_SLOTS_VALUE }: 
 
     // Cleanup timer if the component unmounts
     return () => clearInterval(slotTimer);
-  }, [slots]);
+  }, [unlock, slots]);
 
 
   const contextValue = {

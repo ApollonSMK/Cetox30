@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
@@ -69,10 +70,18 @@ function PageContent() {
   )
 }
 
-export default function Home() {
+function PageWithProvider() {
   return (
     <SlotsProvider initialSlots={35}>
       <PageContent />
     </SlotsProvider>
+  )
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PageWithProvider />
+    </Suspense>
   );
 }

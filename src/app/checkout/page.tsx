@@ -43,10 +43,11 @@ export default function CheckoutPage() {
   async function onSubmit(values: z.infer<typeof checkoutSchema>) {
     setIsSubmitting(true);
     
-    // Track InitiateCheckout event with Facebook Pixel
-    fpixel.event('InitiateCheckout');
-    
     try {
+      // Track InitiateCheckout event with Facebook Pixel
+      // This is inside the try block so if it's blocked by an ad-blocker, it doesn't stop the checkout process.
+      fpixel.event('InitiateCheckout');
+
       const result = await createCheckoutSession(values);
       
       if (result.error) {

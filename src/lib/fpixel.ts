@@ -12,14 +12,14 @@ declare global {
 }
 
 export const pageview = () => {
-  if (typeof window.fbq === 'function') {
+  if (typeof window.fbq === 'function' && FB_PIXEL_ID) {
     window.fbq('track', 'PageView');
   }
 };
 
 // https://developers.facebook.com/docs/facebook-pixel/reference
 export const event = (name: string, options = {}) => {
-  if (typeof window.fbq === 'function') {
+  if (typeof window.fbq === 'function' && FB_PIXEL_ID) {
     window.fbq('track', name, options);
   }
 };

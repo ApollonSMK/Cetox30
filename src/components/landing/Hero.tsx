@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Eye } from 'lucide-react';
 import { useSlots } from '@/contexts/SlotsContext';
+import * as fpixel from '@/lib/fpixel';
 
 export function Hero() {
   const [viewers, setViewers] = useState(0);
@@ -27,6 +28,9 @@ export function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  const handleCtaClick = () => {
+    fpixel.event('Lead', { content_name: 'Hero CTA' });
+  };
 
   return (
     <section className="w-full py-12 md:py-16 lg:py-20 bg-secondary/30 text-center">
@@ -73,7 +77,7 @@ export function Hero() {
                 <span className="text-4xl sm:text-5xl font-bold text-primary">33,99€</span>
               </div>
 
-              <Button asChild size="lg" className="font-bold text-xl h-14 animate-breathing-pulse shadow-xl w-full sm:w-auto">
+              <Button asChild size="lg" className="font-bold text-xl h-14 animate-breathing-pulse shadow-xl w-full sm:w-auto" onClick={handleCtaClick}>
                 <a href="/checkout">QUERO EMAGRECER</a>
               </Button>
             </div>

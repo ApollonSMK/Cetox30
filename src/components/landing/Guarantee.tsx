@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ShieldCheck } from "lucide-react";
+import * as fpixel from '@/lib/fpixel';
 
 export function Guarantee() {
+  const handleCtaClick = () => {
+    fpixel.event('Lead', { content_name: 'Guarantee CTA' });
+  };
+  
   return (
     <section className="w-full py-12 md:py-16 lg:py-20 bg-background">
         <div className="container px-4 md:px-6">
@@ -20,7 +25,7 @@ export function Guarantee() {
                             Sem perguntas, sem complicações.
                         </p>
                     </div>
-                    <Button asChild size="lg" className="font-bold">
+                    <Button asChild size="lg" className="font-bold" onClick={handleCtaClick}>
                         <a href="/checkout">
                             QUERO MUDAR AGORA
                             <ArrowRight className="ml-2 h-5 w-5" />

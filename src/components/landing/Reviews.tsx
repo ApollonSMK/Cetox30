@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Users, ArrowRight, Star } from "lucide-react";
+import * as fpixel from '@/lib/fpixel';
 
 const reviews = [
   {
@@ -33,6 +34,11 @@ const reviews = [
 
 
 export function Reviews() {
+
+  const handleCtaClick = () => {
+    fpixel.event('Lead', { content_name: 'Reviews CTA' });
+  };
+
   return (
     <section id="reviews" className="w-full py-12 md:py-16 lg:py-20 bg-secondary/30">
       <div className="container px-4 md:px-6">
@@ -75,7 +81,7 @@ export function Reviews() {
           ))}
         </div>
         <div className="mt-12 text-center">
-            <Button asChild size="lg" className="h-14 px-8 font-bold text-xl w-full sm:w-auto">
+            <Button asChild size="lg" className="h-14 px-8 font-bold text-xl w-full sm:w-auto" onClick={handleCtaClick}>
                 <a href="/checkout">
                   QUERO PARTICIPAR
                   <ArrowRight className="ml-2 h-5 w-5" />

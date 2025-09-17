@@ -4,8 +4,14 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import * as fpixel from '@/lib/fpixel';
 
 export function Creator() {
+
+  const handleCtaClick = () => {
+    fpixel.event('Lead', { content_name: 'Creator CTA' });
+  };
+
   return (
     <section id="creator" className="w-full py-12 md:py-16 lg:py-20 bg-secondary/30">
       <div className="container px-4 md:px-6">
@@ -40,7 +46,7 @@ export function Creator() {
         </div>
 
         <div className="text-center mt-12">
-          <Button asChild size="lg" className="h-14 px-8 font-bold text-xl animate-breathing-pulse w-full sm:w-auto">
+          <Button asChild size="lg" className="h-14 px-8 font-bold text-xl animate-breathing-pulse w-full sm:w-auto" onClick={handleCtaClick}>
             <a href="/checkout">
               QUERO MUDAR AGORA
               <ArrowRight className="ml-2" />

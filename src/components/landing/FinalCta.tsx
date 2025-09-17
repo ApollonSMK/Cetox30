@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
 import { useSlots } from '@/contexts/SlotsContext';
+import * as fpixel from '@/lib/fpixel';
 
 export function FinalCta() {
     const { slots } = useSlots();
@@ -37,6 +38,10 @@ export function FinalCta() {
     const formatTime = (time: number | undefined) => {
         if (time === undefined) return '00';
         return time < 10 ? `0${time}` : time;
+    };
+
+    const handleCtaClick = () => {
+      fpixel.event('Lead', { content_name: 'Final CTA' });
     };
 
     return (
@@ -73,7 +78,7 @@ export function FinalCta() {
 
                     <div className="bg-primary/10 rounded-lg p-6 text-center space-y-4">
                          <h3 className="text-xl sm:text-2xl font-bold text-primary">TENHA ACESSO AO PLANO CETOX30 COM 70% DE DESCONTO HOJE!</h3>
-                         <Button asChild size="lg" className="w-full sm:w-auto font-bold animate-breathing-pulse">
+                         <Button asChild size="lg" className="w-full sm:w-auto font-bold animate-breathing-pulse" onClick={handleCtaClick}>
                             <a href="/checkout">
                                 INSCREVER-ME AGORA
                                 <ArrowRight className="ml-2 h-5 w-5" />

@@ -15,7 +15,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { createCheckoutSession } from "./actions";
 import { useToast } from "@/hooks/use-toast";
-import * as fpixel from '@/lib/fpixel';
 
 const checkoutSchema = z.object({
   name: z.string().min(2, { message: "O nome deve ter pelo menos 2 caracteres." }),
@@ -44,10 +43,6 @@ export default function CheckoutPage() {
     setIsSubmitting(true);
     
     try {
-      // Track InitiateCheckout event with Facebook Pixel
-      // This is inside the try block so if it's blocked by an ad-blocker, it doesn't stop the checkout process.
-      fpixel.event('InitiateCheckout');
-
       const result = await createCheckoutSession(values);
       
       if (result.error) {
